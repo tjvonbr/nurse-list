@@ -3,24 +3,12 @@
 import Spinner from "@/components/common/Spinner";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 export default function Home() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  useEffect(() => {
-    async function getWeather() {
-      const result = await fetch(
-        `https://api.openweathermap.org/data/3.0/onecall?lat=42&lon=-87&&appid=c842f7757d9f4251636587822c60d104`
-      );
-
-      console.log("WEATHER: ", result);
-    }
-
-    // getWeather();
-  }, []);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setEmail(e.target.value);
