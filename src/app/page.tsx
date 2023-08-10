@@ -1,5 +1,6 @@
+import CityCard from "@/components/CityCard";
 import LandingForm from "@/components/LandingForm";
-import Spinner from "@/components/common/Spinner";
+import { City, cities } from "@/config/cities";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -29,124 +30,18 @@ export default function Home() {
 
       <h2 className="text-3xl font-bold">You can find us in</h2>
       <div className="mt-6 mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://jobs.nm.org/employment/chicago-illinois-united-states-nursing-jobs/27763/68550/6252001-4896861-4888671-4887398/4"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Chicago{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              💨
-            </span>
-          </h2>
-          <Image
-            src="/chicago.png"
-            alt="Chicago Skyline"
-            className="rounded-md"
-            width={500}
-            height={500}
-            priority
+        {cities.map((city: City, idx: number) => (
+          <CityCard
+            key={idx}
+            name={city.name}
+            lat={city.lat}
+            lon={city.lon}
+            href={city.href}
+            imageSrc={city.imageSrc}
+            altText={city.altText}
+            costOfLiving={city.costOfLiving}
           />
-          <div className="mt-2 flex justify-between">
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              Feels like 79&deg;F ⛅️
-            </p>
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              $2,425/month
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="https://jooble.org/jobs-rn/Phoenix%2C-AZ"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Phoenix{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              ☀️
-            </span>
-          </h2>
-          <Image
-            src="/phoenix.png"
-            alt="Phoenix Skyline"
-            className="rounded-md"
-            width={500}
-            height={500}
-          />
-          <div className="mt-2 flex justify-between">
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              Feels like 106&deg;F 🥵
-            </p>
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              $2,445/month
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="https://www.monster.com/jobs/q-nursing-jobs-l-san-antonio-tx"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            San Antonio{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              🤠
-            </span>
-          </h2>
-          <Image
-            src="/san_antonio.png"
-            alt="San Antonio Skyline"
-            className="rounded-md"
-            width={500}
-            height={500}
-            priority
-          />
-          <div className="mt-2 flex justify-between">
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              Feels like 105&deg;F 🥵
-            </p>
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              $2,051/month
-            </p>
-          </div>
-        </a>
-
-        <a
-          href="https://hawaiipacifichealth.jobs/nursing/new-jobs/"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Honolulu{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              🌴
-            </span>
-          </h2>
-          <Image
-            src="/honolulu.png"
-            alt="Honolulu Skyline"
-            className="rounded-md"
-            width={500}
-            height={500}
-            priority
-          />
-          <div className="mt-2 flex justify-between">
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              Feels like 82&deg;F ⛅️
-            </p>
-            <p className={`m-0 max-w-[30ch] text-xs font-medium`}>
-              $2,804/month
-            </p>
-          </div>
-        </a>
+        ))}
       </div>
       <footer className="absolute bottom-3 left-3">
         <div className="absolute bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
