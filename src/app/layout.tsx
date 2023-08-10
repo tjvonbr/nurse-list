@@ -6,8 +6,11 @@ import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Nurselist",
+  title: "NurseList",
   description: "Discover your next travel destination",
+  icons: {
+    icon: "/icon.tsx",
+  },
 };
 
 export default function RootLayout({
