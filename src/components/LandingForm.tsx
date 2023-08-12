@@ -3,6 +3,7 @@
 import { useState } from "react";
 import toast from "react-hot-toast";
 import Spinner from "./common/Spinner";
+import Link from "next/link";
 
 export default function LandingForm() {
   const [email, setEmail] = useState("");
@@ -24,7 +25,7 @@ export default function LandingForm() {
   }
 
   return (
-    <form className="px-2 space-y-2" action="">
+    <form className="flex flex-col items-center px-2 space-y-2" action="">
       <input
         className="h-10 w-full border border-slate-300 px-2 py-2 rounded-md text-sm"
         type="text"
@@ -38,6 +39,9 @@ export default function LandingForm() {
       >
         {isLoading ? <Spinner color="white" size={15} /> : "🚀 Submit"}
       </button>
+      <Link className="text-xs hover:underline" href="/login">
+        Already have an account? Sign in here
+      </Link>
     </form>
   );
 }
