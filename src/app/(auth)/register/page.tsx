@@ -1,4 +1,4 @@
-import RegisterForm from "@/components/LoginForm";
+import RegisterForm from "@/components/RegisterForm";
 import RegisterGoogleMap from "@/components/RegisterGoogleMap";
 import Link from "next/link";
 
