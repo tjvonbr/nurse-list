@@ -9,7 +9,7 @@ export default function RegisterGoogleMap() {
   };
 
   const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: "AIzaSyAIYfmTR7l3GjBDStWj28dxyeT-Skceot8" ?? "",
+    googleMapsApiKey: process.env.GOOGLE_MAPS_API_KEY ?? "",
   });
 
   return (
