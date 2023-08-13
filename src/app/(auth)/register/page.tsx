@@ -17,7 +17,7 @@ export default function Register() {
           </p>
           <RegisterForm />
           <Link className="mt-3 text-xs hover:underline" href="/register">
-            Don&apos;t have an account yet? Sign up here
+            Already have an account yet? Sign in here
           </Link>
         </div>
       </div>
