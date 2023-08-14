@@ -16,7 +16,7 @@ export default function Register() {
             out the fields below so we can get you started!
           </p>
           <RegisterForm />
-          <Link className="mt-3 text-xs hover:underline" href="/register">
+          <Link className="mt-3 text-xs hover:underline" href="/login">
             Already have an account yet? Sign in here
           </Link>
         </div>

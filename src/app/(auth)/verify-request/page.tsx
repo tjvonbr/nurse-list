@@ -9,7 +9,10 @@ export default function VerifyRequest() {
           We just sent you an email with a login link! If you do not receive it
           after a few minutes, make sure you provided the correct email address.
         </p>
-        <Link className="text-xs hover:underline" href="/">
+        <Link
+          className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-black text-white"
+          href="/"
+        >
           Back to login
         </Link>
       </div>

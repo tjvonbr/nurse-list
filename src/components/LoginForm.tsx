@@ -13,18 +13,12 @@ export default function LoginForm() {
     e.preventDefault();
     setIsLoggingIn(true);
 
-    const response = await signIn("email", { email });
-    console.log(response);
+    await signIn("email", {
+      email,
+      callbackUrl: "/dashboard",
+    });
 
     setIsLoggingIn(false);
-
-    if (!response?.ok) {
-      return toast.error(
-        "Whoops!  Something went wrong during the login process."
-      );
-    }
-
-    return toast.success("Please check your email for a login link!");
   }
 
   return (
@@ -46,6 +40,7 @@ export default function LoginForm() {
       </fieldset>
       <button
         className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-black text-white"
+        disabled={isLoggingIn}
         onClick={handleSubmit}
       >
         {isLoggingIn ? <Spinner color="white" size={15} /> : "Submit"}
