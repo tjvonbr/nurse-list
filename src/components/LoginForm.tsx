@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import Spinner from "./common/Spinner";
+import { signIn } from "next-auth/react";
+import { toast } from "react-hot-toast";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -11,10 +13,18 @@ export default function LoginForm() {
     e.preventDefault();
     setIsLoggingIn(true);
 
-    setTimeout(() => {
-      setIsLoggingIn(false);
-      setEmail("");
-    }, 1000 * 2);
+    const response = await signIn("email", { email });
+    console.log(response);
+
+    setIsLoggingIn(false);
+
+    if (!response?.ok) {
+      return toast.error(
+        "Whoops!  Something went wrong during the login process."
+      );
+    }
+
+    return toast.success("Please check your email for a login link!");
   }
 
   return (
