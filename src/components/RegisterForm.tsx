@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Spinner from "./common/Spinner";
+import { signIn } from "next-auth/react";
 
 export default function RegisterForm() {
   const [firstName, setFirstName] = useState("");
@@ -12,14 +13,11 @@ export default function RegisterForm() {
   const [state, setState] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setIsLoggingIn(true);
 
-    setTimeout(() => {
-      setIsLoggingIn(false);
-      setEmail("");
-    }, 1000 * 2);
+    const register = await signIn("email", { email });
   }
 
   return (

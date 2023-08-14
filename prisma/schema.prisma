@@ -48,7 +48,7 @@ model User {
   updatedAt       DateTime    @updatedAt
   firstName       String
   lastName        String
-  email           String
+  email           String      @unique
   phoneNumber     String?
   gender          String?
   birthday        DateTime
