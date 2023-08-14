@@ -21,15 +21,37 @@ model City {
   population    Int
 }
 
+model FeatureRequest {
+  id            Int      @id @default(autoincrement())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  subject       String
+  body          String
+  status        Status  
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int
+
+  @@map("feature_requests")
+}
+
+enum Status {
+  SUBMITTED
+  CONFIRMED
+  IN_PROGRESS
+  COMPLETED
+  CANCELLED
+}
+
 model User {
-  id            Int         @id @default(autoincrement())
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  firstName     String
-  lastName      String
-  email         String
-  phoneNumber   String?
-  gender        String?
-  birthday      DateTime
-  location      String
+  id              Int         @id @default(autoincrement())
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  firstName       String
+  lastName        String
+  email           String
+  phoneNumber     String?
+  gender          String?
+  birthday        DateTime
+  location        String
+  featureRequests FeatureRequest[]
 }
