@@ -1,5 +1,5 @@
 import { db } from "@/lib/prisma";
-import { Status } from "@prisma/client";
+import { Status } from "@/types/feature-requests";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
