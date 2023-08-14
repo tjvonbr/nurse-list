@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Spinner from "./common/Spinner";
-import PlacesAutocomplete from "react-places-autocomplete";
 
 export default function RegisterForm() {
   const [firstName, setFirstName] = useState("");
