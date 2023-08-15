@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Spinner from "./common/Spinner";
-import { signIn } from "next-auth/react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
   const [firstName, setFirstName] = useState("");
@@ -11,13 +12,35 @@ export default function RegisterForm() {
   const [birthday, setBirthday] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
-  const [isLoggingIn, setIsLoggingIn] = useState(false);
+  const [isRegistering, setIsRegistering] = useState(false);
+
+  const router = useRouter();
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setIsLoggingIn(true);
 
-    const register = await signIn("email", { email });
+    setIsRegistering(true);
+
+    const response = await fetch("http://localhost:3000/api/register", {
+      method: "POST",
+      body: JSON.stringify({
+        firstName,
+        lastName,
+        email,
+        birthday,
+        city,
+        state,
+      }),
+    });
+
+    setIsRegistering(false);
+
+    if (!response.ok) {
+      return toast.error("Oh no!  Something went wrong signing you up!");
+    } else {
+      toast.success("Yay!  You're signed up.  Time to login in!");
+      router.replace("/login");
+    }
   }
 
   return (
@@ -118,7 +141,7 @@ export default function RegisterForm() {
         className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-black text-white"
         onClick={handleSubmit}
       >
-        {isLoggingIn ? <Spinner color="white" size={15} /> : "Submit"}
+        {isRegistering ? <Spinner color="white" size={15} /> : "Submit"}
       </button>
     </form>
   );
