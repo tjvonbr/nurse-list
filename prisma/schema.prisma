@@ -78,8 +78,9 @@ model User {
   email           String      @unique
   phoneNumber     String?
   gender          String?
-  birthday        DateTime
-  location        String
+  birthday        DateTime?
+  city            String
+  state           String
   featureRequests FeatureRequest[]
   accounts        Account[]
   sessions        Session[]

@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Spinner from "./common/Spinner";
 import { signIn } from "next-auth/react";
-import { toast } from "react-hot-toast";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
