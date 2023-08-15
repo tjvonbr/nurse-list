@@ -43,7 +43,7 @@ export default function CityCard({
       }
     }
 
-    if (process.env.NODE_ENV === "production") getCityTemps();
+    getCityTemps();
   });
 
   return (
