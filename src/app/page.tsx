@@ -3,10 +3,21 @@ import LandingForm from "@/components/LandingForm";
 import { City, cities } from "@/config/cities";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
 
 export default function Home() {
   return (
     <main className="min-h-screen relative flex flex-col items-center">
+      <Script src="https://www.googletagmanager.com/gtag/js?id=G-LGC0GGQ5E1" />
+      <Script id="google-analytics">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-LGC0GGQ5E1');
+        `}
+      </Script>
       <header className="w-full px-3 py-2 flex justify-between items-center ">
         <Link className="text-xl font-bold" href="#">
           👩‍⚕️ NurseList
