@@ -2,10 +2,20 @@
 
 import { GoogleMap, useJsApiLoader } from "@react-google-maps/api";
 
-export default function RegisterGoogleMap() {
+interface LandingGoogleMapProps {
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+}
+
+export default function LandingGoogleMap({
+  coordinates,
+}: LandingGoogleMapProps) {
   const containerStyle = {
-    width: "100%",
-    height: "100vh",
+    width: "75%",
+    height: "75%",
+    borderRadius: "5px",
   };
 
   const { isLoaded } = useJsApiLoader({
@@ -16,8 +26,8 @@ export default function RegisterGoogleMap() {
     isLoaded && (
       <GoogleMap
         mapContainerStyle={containerStyle}
-        center={{ lat: 39.83, lng: -95.58 }}
-        zoom={4}
+        center={{ lat: coordinates.lat, lng: coordinates.lng }}
+        zoom={11}
       />
     )
   );

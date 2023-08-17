@@ -1,8 +1,10 @@
 import CityCard from "@/components/CityCard";
+import HomeOperations from "@/components/HomeOperations";
 import LandingForm from "@/components/LandingForm";
+import LandingGoogleMap from "@/components/LandingGoogleMap";
+import Navbar from "@/components/Navbar";
 import { City, cities } from "@/config/cities";
 import Image from "next/image";
-import Link from "next/link";
 import Script from "next/script";
 
 export default function Home() {
@@ -18,26 +20,8 @@ export default function Home() {
           gtag('config', 'G-LGC0GGQ5E1');
         `}
       </Script>
-      <header className="w-full px-3 py-2 flex justify-between items-center ">
-        <Link className="text-xl font-bold" href="#">
-          👩‍⚕️ NurseList
-        </Link>
-      </header>
-      <div className="h-64 w-3/4 m-16 flex justify-between items-center">
-        <h1 className="w-1/2 text-4xl font-bold">
-          Join a professional community of travel nurses living and traveling
-          around the world
-        </h1>
-        <div className="w-[300px] flex flex-col space-y-2 justify-between rounded-md">
-          <div className="flex flex-col items-center">
-            <p className="text-center text-black text-sm font-semibold">
-              Sign up now to get access to our private Slack and Discord servers
-              to meet like-minded professionals!
-            </p>
-          </div>
-          <LandingForm />
-        </div>
-      </div>
+      <Navbar />
+      <HomeOperations />
 
       <h2 className="text-3xl font-bold">You can find us in</h2>
       <div className="mt-6 mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
@@ -67,7 +51,7 @@ export default function Home() {
               src="/vercel.svg"
               alt="Vercel Logo"
               className="rounded-md"
-              width={60}
+              width={50}
               height={10}
               priority
             />
