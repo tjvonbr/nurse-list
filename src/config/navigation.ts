@@ -2,7 +2,11 @@ export const navigationItems = {
   marketing: [
     {
       name: "Features",
-      href: "#features",
+      href: "/#features",
+    },
+    {
+      name: "About",
+      href: "/#about",
     },
   ],
 };

@@ -4,11 +4,11 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <header className="w-full px-10 py-5 flex justify-between items-center">
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-6">
         <Link className="text-xl font-bold" href="#">
           👩‍⚕️ NurseList
         </Link>
-        <nav className="flex space-x-2">
+        <nav className="flex space-x-6">
           {navigationItems.marketing.map((item, idx) => {
             return (
               <Link
