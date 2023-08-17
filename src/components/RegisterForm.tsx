@@ -138,7 +138,7 @@ export default function RegisterForm() {
         </fieldset>
       </div>
       <button
-        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-black text-white"
+        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-white"
         onClick={handleSubmit}
       >
         {isRegistering ? <Spinner color="white" size={15} /> : "Submit"}
