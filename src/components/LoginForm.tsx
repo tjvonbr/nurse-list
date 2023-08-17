@@ -38,7 +38,7 @@ export default function LoginForm() {
         />
       </fieldset>
       <button
-        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-blue-600 hover:bg-blue-700 text-white"
+        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-white"
         disabled={isLoggingIn}
         onClick={handleSubmit}
       >
