@@ -1,13 +1,10 @@
 import RegisterForm from "@/components/RegisterForm";
-import RegisterGoogleMap from "@/components/RegisterGoogleMap";
 import Link from "next/link";
 
 export default function Register() {
   return (
     <div className="min-h-screen grid grid-cols-2">
-      <div className="border-r border-slate-300">
-        <RegisterGoogleMap />
-      </div>
+      <div className="border-r border-slate-300"></div>
       <div className="flex flex-col justify-center items-center">
         <div className="w-1/2 flex flex-col justify-center items-center space-y-3">
           <h1 className="text-3xl font-bold">Welcome!</h1>

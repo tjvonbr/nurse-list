@@ -1,47 +1,70 @@
 "use client";
 
 import { useState } from "react";
-import toast from "react-hot-toast";
-import Spinner from "./common/Spinner";
-import Link from "next/link";
+import PlacesAutocomplete from "react-places-autocomplete";
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
-export default function LandingForm() {
-  const [email, setEmail] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
+interface LandingFormProps {
+  handleChangeCoordinates: (coordinates: { lat: number; lng: number }) => void;
+}
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
-    setEmail(e.target.value);
+export default function LandingForm({
+  handleChangeCoordinates,
+}: LandingFormProps) {
+  const [city, setCity] = useState("");
+
+  function handleChange(query: string) {
+    setCity(query);
   }
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    setIsLoading(true);
+  async function handleSelect(address: string) {
+    const response = await geocodeByAddress(address);
+    setCity(response[0].formatted_address);
 
-    setTimeout(() => {
-      setIsLoading(false);
-      setEmail("");
-      toast.success("Email received!  Please check your inbox! 💫");
-    }, 1000 * 2);
+    const coordinates = await getLatLng(response[0]);
+    handleChangeCoordinates({ lat: coordinates.lat, lng: coordinates.lng });
   }
+
+  const searchOptions = {
+    types: ["(cities)"],
+    componentRestrictions: { country: "us" },
+  };
 
   return (
-    <form className="flex flex-col items-center px-2 space-y-2" action="">
-      <input
-        className="h-10 w-full border border-slate-300 px-2 py-2 rounded-md text-sm"
-        type="text"
-        placeholder="Type your email..."
-        value={email}
+    <form className="w-3/4 flex flex-col items-center px-2 space-y-2">
+      <PlacesAutocomplete
+        value={city}
         onChange={handleChange}
-      />
-      <button
-        className="h-10 w-full flex justify-center items-center rounded-md bg-black hover:bg-gray-800 transition-colors text-white text-sm"
-        onClick={handleSubmit}
+        onSelect={handleSelect}
+        searchOptions={searchOptions}
       >
-        {isLoading ? <Spinner color="white" size={15} /> : "🚀 Submit"}
-      </button>
-      <Link className="text-xs hover:underline" href="/login">
-        Already have an account? Sign in here
-      </Link>
+        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+          <div>
+            <input
+              {...getInputProps({
+                placeholder: "Search for a city...",
+                className:
+                  "h-10 w-[300px] border border-slate-300 px-2 py-2 rounded-md text-sm",
+              })}
+            />
+            <div className="bg-white">
+              {suggestions.map((suggestion) => {
+                return (
+                  // eslint-disable-next-line
+                  <div
+                    className="w-full px-2 hover:bg-gray-200 hover:rounded-sm hover:cursor-pointer"
+                    {...getSuggestionItemProps(suggestion)}
+                  >
+                    <span className="text-sm font-medium">
+                      {suggestion.description}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </PlacesAutocomplete>
     </form>
   );
 }
