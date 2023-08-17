@@ -26,7 +26,7 @@ export default function RootLayout({ children, session }: RootLayoutProps) {
           defer
           type="text/javascript"
           strategy="beforeInteractive"
-          src={`https://maps.googleapis.com/maps/api/js?key=AIzaSyAIYfmTR7l3GjBDStWj28dxyeT-Skceot8&libraries=places`}
+          src={`https://maps.googleapis.com/maps/api/js?key=${process.env.GOOGLE_MAPS_API_KEY}&libraries=places`}
         />
         <Toaster position="bottom-right" />
       </html>
