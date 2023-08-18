@@ -1,11 +1,18 @@
 export interface City {
   name: string;
   lat: string;
-  lon: string;
+  lng: string;
   href: string;
   imageSrc: string;
   altText: string;
   costOfLiving: string;
+  scores: {
+    overall: number;
+    jobs: number;
+    nightlife: number;
+    safety: number;
+    housing: number;
+  };
 }
 
 export const cityEmojiMap: { [key: string]: string } = {
@@ -13,44 +20,109 @@ export const cityEmojiMap: { [key: string]: string } = {
   Phoenix: "☀️",
   "San Antonio": "🤠",
   Honolulu: "🏝️",
+  Boston: "🎓",
 };
 
 export const cities: City[] = [
   {
     name: "Chicago",
     lat: "41.88",
-    lon: "-87.62",
+    lng: "-87.62",
     href: "https://jobs.nm.org/employment/chicago-illinois-united-states-nursing-jobs/27763/68550/6252001-4896861-4888671-4887398/4",
     imageSrc: "/chicago.png",
     altText: "Chicago Skyline",
     costOfLiving: "$2,425/month",
+    scores: {
+      jobs: 8.7,
+      nightlife: 9.9,
+      safety: 5.4,
+      housing: 6.2,
+      get overall() {
+        return Math.round(
+          this.housing + this.nightlife + this.safety + this.jobs / 4
+        );
+      },
+    },
   },
   {
     name: "Phoenix",
     lat: "33.44",
-    lon: "-112.07",
+    lng: "-112.07",
     href: "https://jooble.org/jobs-rn/Phoenix%2C-AZ",
     imageSrc: "/phoenix.png",
     altText: "Phoenix Skyline",
     costOfLiving: "$2,445/month",
+    scores: {
+      jobs: 9.5,
+      nightlife: 8.7,
+      safety: 7.6,
+      housing: 7.5,
+      get overall() {
+        return Math.round(
+          this.housing + this.nightlife + this.safety + this.jobs / 4
+        );
+      },
+    },
   },
   {
     name: "San Antonio",
     lat: "29.42",
-    lon: "-98.49",
+    lng: "-98.49",
     href: "https://www.monster.com/jobs/q-nursing-jobs-l-san-antonio-tx",
     imageSrc: "/san_antonio.png",
     altText: "San Antonio Skyline",
     costOfLiving: "$2,051/month",
+    scores: {
+      jobs: 9.2,
+      nightlife: 5.4,
+      safety: 8.6,
+      housing: 5.6,
+      get overall() {
+        return Math.round(
+          this.housing + this.nightlife + this.safety + this.jobs / 4
+        );
+      },
+    },
   },
   {
     name: "Honolulu",
     lat: "21.31",
-    lon: "-157.85",
+    lng: "-157.85",
     href: "https://hawaiipacifichealth.jobs/nursing/new-jobs/",
     imageSrc: "/honolulu.png",
     altText: "Honolulu Skyline",
     costOfLiving: "$2,804/month",
+    scores: {
+      jobs: 9.4,
+      nightlife: 9.2,
+      safety: 9.6,
+      housing: 7.6,
+      get overall() {
+        return Math.round(
+          this.housing + this.nightlife + this.safety + this.jobs / 4
+        );
+      },
+    },
+  },
+  {
+    name: "Boston",
+    lat: "42.36",
+    lng: "-71.06",
+    href: "https://www.americantraveler.com/travel-nursing-jobs/massachusetts/boston",
+    imageSrc: "/boston_skyline.png",
+    altText: "Boston Skyline",
+    costOfLiving: "$2,899/month",
+    scores: {
+      jobs: 7.2,
+      nightlife: 7.8,
+      safety: 7.6,
+      housing: 7.6,
+      get overall() {
+        return Math.round(
+          this.housing + this.nightlife + this.safety + this.jobs / 4
+        );
+      },
+    },
   },
 ];
 
