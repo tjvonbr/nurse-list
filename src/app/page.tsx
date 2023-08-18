@@ -4,6 +4,8 @@ import Image from "next/image";
 import Script from "next/script";
 import { advent } from "./fonts";
 import { cn } from "@/lib/utils";
+import { City, cities } from "@/config/cities";
+import CityCard from "@/components/CityCard";
 
 export default function Home() {
   return (
@@ -95,7 +97,42 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="w-3/4 my-32 rounded-md bg-purple-600">
+        <h2 className="w-1/2 mt-32 mb-16 text-center text-3xl font-bold">
+          Here are the cities we&apos;re with a flourishing{" "}
+          <span className="font-bold from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">
+            NurseList
+          </span>{" "}
+          community.
+        </h2>
+        <section className="w-3/4 mb-32 flex flex-wrap items-center justify-center space-x-6">
+          {cities.map((city: City, idx: number) => {
+            const {
+              name,
+              lat,
+              lng,
+              href,
+              costOfLiving,
+              imageSrc,
+              altText,
+              scores,
+            } = city;
+            return (
+              <CityCard
+                key={idx}
+                name={name}
+                lat={lat}
+                lng={lng}
+                href={href}
+                costOfLiving={costOfLiving}
+                imageSrc={imageSrc}
+                altText={altText}
+                scores={scores}
+              />
+            );
+          })}
+        </section>
+
+        <section id="about" className="w-3/4 mb-32 rounded-md bg-purple-600">
           <div className="h-[400px] m-2 py-5 flex flex-col justify-between bg-white rounded-md border border-black">
             <p className={(cn(advent.className), "px-10 font-bold uppercase")}>
               At NurseList, we&apos;re,
