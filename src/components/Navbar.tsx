@@ -4,16 +4,16 @@ import Link from "next/link";
 export default function Navbar() {
   return (
     <header className="w-full px-10 py-5 flex justify-between items-center">
-      <div className="flex items-center space-x-6">
+      <div className="flex items-center space-x-10">
         <Link className="text-xl font-bold" href="#">
-          👩‍⚕️ NurseList
+          NurseList
         </Link>
-        <nav className="flex space-x-6">
+        <nav className="flex space-x-10">
           {navigationItems.marketing.map((item, idx) => {
             return (
               <Link
                 key={idx}
-                className="text-sm text-black hover:text-slate-700 transition-colors"
+                className="text-sm hover:text-blue-200 font-bold transition-colors"
                 href={item.href}
               >
                 {item.name}
@@ -22,12 +22,6 @@ export default function Navbar() {
           })}
         </nav>
       </div>
-      <a
-        className="h-10 px-5 py-2 flex border border-blue-600 justify-center items-center rounded-md bg-transparent hover:bg-blue-700 transition-colors text-md text-blue-600 hover:text-white"
-        href="/login"
-      >
-        Login
-      </a>
     </header>
   );
 }

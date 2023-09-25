@@ -2,7 +2,6 @@ import HomeOperations from "@/components/HomeOperations";
 import Navbar from "@/components/Navbar";
 import Image from "next/image";
 import Script from "next/script";
-import { advent } from "./fonts";
 import { cn } from "@/lib/utils";
 import { City, cities } from "@/config/cities";
 import CityCard from "@/components/CityCard";
@@ -134,7 +133,7 @@ export default function Home() {
 
         <section id="about" className="w-3/4 mb-32 rounded-md bg-purple-600">
           <div className="h-[400px] m-2 py-5 flex flex-col justify-between bg-white rounded-md border border-black">
-            <p className={(cn(advent.className), "px-10 font-bold uppercase")}>
+            <p className="px-10 font-bold uppercase">
               At NurseList, we&apos;re,
             </p>
             <p className="px-10 text-4xl font-bold">
