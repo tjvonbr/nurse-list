@@ -4,6 +4,7 @@ import { Session } from "next-auth";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
+import { Metadata } from "next";
 
 interface RootLayoutProps {
   children: React.ReactNode;

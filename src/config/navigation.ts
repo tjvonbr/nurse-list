@@ -5,8 +5,8 @@ export const navigationItems = {
       href: "/#features",
     },
     {
-      name: "About",
-      href: "/#about",
+      name: "Pricing",
+      href: "/#pricing",
     },
   ],
 };
