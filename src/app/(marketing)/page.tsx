@@ -58,9 +58,9 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className="my-32 flex flex-col items-center" id="pricing">
+      <section className="my-32 mx-5 flex flex-col items-center" id="pricing">
         <h2 className="text-gray-300 text-xl font-black">Pricing</h2>
-        <p className="w-full text-center text-5xl font-bold">
+        <p className="w-full text-center text-wrap text-5xl font-bold">
           Level up your travel experience
         </p>
         <div className="p-5 my-10 w-[600px] flex flex-col items-center rounded-md bg-slate-900">
