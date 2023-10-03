@@ -30,9 +30,9 @@ export default function EmailForm() {
   }
 
   return (
-    <form className="w-full md:w-1/2 flex flex-col md:flex-row items-center space-x-4">
+    <form className="box-content w-full sm:w-1/2 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center">
       <input
-        className="h-9 flex-grow px-3 py-2 rounded-md bg-slate-900 text-gray-300 text-sm"
+        className="h-9 w-full sm:flex-grow px-3 py-2 rounded-md bg-slate-900 text-gray-300 text-sm"
         name="email"
         onChange={handleChange}
         placeholder="Enter your email..."
@@ -40,7 +40,7 @@ export default function EmailForm() {
         value={email}
       />
       <button
-        className="box-content h-9 px-3 flex justify-center items-center rounded-md bg-blue-600 shadow-[-10px_-10px_30px_4px_rgba(0,0,0,0.1),_10px_10px_30px_4px_rgba(37,99,235,0.15)] hover:bg-blue-700 transition-colors text-md"
+        className="w-full sm:w-[160px] h-9 py-3 px-3 flex flex-row justify-center items-center rounded-md bg-blue-600 hover:bg-blue-700 transition-colors text-md"
         onClick={handleSubmit}
       >
         Join now!

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen px-5 relative flex flex-col items-center">
+    <main className="min-h-screen pt-10 px-5 relative flex flex-col items-center">
       <Script src="https://www.googletagmanager.com/gtag/js?id=G-LGC0GGQ5E1" />
       <Script id="google-analytics">
         {`
@@ -58,12 +58,12 @@ export default function Home() {
           })}
         </div>
       </section>
-      <section className="my-32 mx-5 flex flex-col items-center" id="pricing">
+      <section className="my-32 flex flex-col items-center" id="pricing">
         <h2 className="text-gray-300 text-xl font-black">Pricing</h2>
-        <p className="w-full text-center text-wrap text-5xl font-bold">
+        <p className="w-full text-center text-5xl font-bold">
           Level up your travel experience
         </p>
-        <div className="p-5 my-10 w-[600px] flex flex-col items-center rounded-md bg-slate-900">
+        <div className="w-full p-5 my-10 md:w-[600px] flex flex-col items-center rounded-md bg-slate-900">
           <p className="text-4xl text-white font-bold">Basic</p>
           <p className="mt-4 text-5xl from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent font-bold">
             $29/month
@@ -95,7 +95,7 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <button className="mt-12 bg-violet-600 hover:bg-violet-700 transition-colors w-1/2 rounded-md h-10">
+          <button className="w-full md:w-1/2 mt-12 bg-violet-600 hover:bg-violet-700 transition-colors rounded-md h-10">
             Get started!
           </button>
         </div>
