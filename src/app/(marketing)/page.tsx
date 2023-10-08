@@ -20,16 +20,16 @@ export default function Home() {
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-        
+          
           gtag('config', 'G-LGC0GGQ5E1');
-        `}
+          `}
       </Script>
       <Navbar />
       <HomeOperations />
 
       <section id="features" className="flex flex-col items-center">
-        <h2 className="text-gray-300 text-xl font-black">Features</h2>
-        <p className="w-full md:w-1/2 text-center text-5xl font-bold">
+        <h2 className="text-xl text-purple-600 font-black">Features</h2>
+        <p className="w-full md:w-1/2 text-center text-3xl text-black font-bold">
           When you join{" "}
           <span className="font-black from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">
             NurseList
@@ -43,14 +43,14 @@ export default function Home() {
 
             return (
               <div
-                className="md:w-[300px] p-5 flex flex-col space-y-2 rounded-md bg-slate-900"
+                className="md:w-[300px] p-5 flex flex-col space-y-2 rounded-md bg-slate-100 border border-slate-300"
                 key={idx}
               >
                 <div className="h-12 w-12 p5 flex justify-center items-center rounded-md from-purple-600 to-blue-600 bg-gradient-to-br">
                   <Icon color="white" size={25} />
                 </div>
-                <p className="text-2xl font-bold">{feature.title}</p>
-                <p className="text-gray-500 font-medium">
+                <p className="text-2xl text-black font-bold">{feature.title}</p>
+                <p className="text-gray-600 font-medium">
                   {feature.description}
                 </p>
               </div>
@@ -59,12 +59,12 @@ export default function Home() {
         </div>
       </section>
       <section className="my-32 flex flex-col items-center" id="pricing">
-        <h2 className="text-gray-300 text-xl font-black">Pricing</h2>
-        <p className="w-full text-center text-5xl font-bold">
+        <h2 className="text-xl text-purple-600 font-black">Pricing</h2>
+        <p className="w-full text-center text-3xl text-black font-bold">
           Level up your travel experience
         </p>
-        <div className="w-full p-5 my-10 md:w-[600px] flex flex-col items-center rounded-md bg-slate-900">
-          <p className="text-4xl text-white font-bold">Basic</p>
+        <div className="w-full p-5 my-10 md:w-[600px] flex flex-col items-center rounded-md bg-slate-100 border border-slate-300">
+          <p className="text-4xl text-black font-bold">Basic</p>
           <p className="mt-4 text-5xl from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent font-bold">
             $29/month
           </p>
@@ -72,7 +72,7 @@ export default function Home() {
           <div className="w-[90%] flex flex-col items-center space-y-8">
             <div className="w-full flex flex-row space-x-8 items-center">
               <Check color="#9333ea" size={50} />
-              <p className="text-gray-300">
+              <p className="text-black">
                 Access to our exclusive Slack channels with other nurses living
                 in the city you&apos;re currently working in or would like to
                 work in soon.{" "}
@@ -80,7 +80,7 @@ export default function Home() {
             </div>
             <div className="w-full flex flex-row space-x-8 items-center">
               <Check color="#9333ea" size={50} />
-              <p className="text-gray-300">
+              <p className="text-black">
                 Access to our classifieds section where you can find
                 fully-furnished housing and furniture for the duration of your
                 contract.
@@ -88,14 +88,14 @@ export default function Home() {
             </div>
             <div className="w-full flex flex-row space-x-8 items-center">
               <Check color="#9333ea" size={50} />
-              <p className="text-gray-300">
+              <p className="text-black">
                 Reviews of cities and hospitals left by fellow travel nurses
                 that have worked in the cities and hospitals you&apos;re
                 currently interested in.
               </p>
             </div>
           </div>
-          <button className="w-full md:w-1/2 mt-12 bg-violet-600 hover:bg-violet-700 transition-colors rounded-md h-10">
+          <button className="w-full md:w-1/2 mt-12 bg-purple-600 hover:bg-blue-700 transition-colors rounded-md h-10">
             Get started!
           </button>
         </div>

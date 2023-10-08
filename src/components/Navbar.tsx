@@ -5,7 +5,7 @@ export default function Navbar() {
   return (
     <header className="w-full px-10 flex justify-between items-center">
       <div className="flex items-center space-x-10">
-        <Link className="text-xl font-bold" href="/">
+        <Link className="text-xl text-black font-bold" href="/">
           NurseList
         </Link>
         <nav className="hidden sm:flex space-x-10">
@@ -13,7 +13,7 @@ export default function Navbar() {
             return (
               <Link
                 key={idx}
-                className="text-sm hover:text-gray-300 font-bold transition-colors"
+                className="text-sm text-black hover:text-gray-600 font-semibold transition-colors"
                 href={item.href}
               >
                 {item.name}

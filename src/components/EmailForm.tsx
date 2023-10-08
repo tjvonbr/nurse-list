@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
+import { Input } from "./common/Input";
 
 export default function EmailForm() {
   const [email, setEmail] = useState("");
@@ -31,8 +32,7 @@ export default function EmailForm() {
 
   return (
     <form className="box-content w-full sm:w-1/2 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center">
-      <input
-        className="h-9 w-full sm:flex-grow px-3 py-2 rounded-md bg-slate-900 text-gray-300 text-sm"
+      <Input
         name="email"
         onChange={handleChange}
         placeholder="Enter your email..."
