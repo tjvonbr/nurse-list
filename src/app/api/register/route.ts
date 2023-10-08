@@ -7,8 +7,6 @@ const createSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   email: z.string(),
-  city: z.string(),
-  state: z.string(),
 });
 
 export async function POST(req: NextRequest) {
@@ -16,18 +14,13 @@ export async function POST(req: NextRequest) {
     const json = await req.json();
     const body = createSchema.parse(json);
 
-    console.log("hello");
     const user = await db.user.create({
       data: {
         firstName: body.firstName,
         lastName: body.lastName,
         email: body.email,
-        city: body.city,
-        state: body.state,
       },
     });
-
-    console.log(user);
 
     return NextResponse.json(user);
   } catch (error) {
