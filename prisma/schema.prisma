@@ -11,8 +11,7 @@ datasource db {
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             Int
+  id                 String  @id @default(uuid())
   type               String
   provider           String
   providerAccountId  String
@@ -23,67 +22,34 @@ model Account {
   scope              String?
   id_token           String?  @db.Text
   session_state      String?
-
+  userId             String
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
+  @@map("accounts")
 }
 
 model Session {
-  id           String   @id @default(cuid())
+  id           String   @id @default(uuid())
   sessionToken String   @unique
-  userId       Int
   expires      DateTime
+  userId       String
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
 
-model City {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  name          String   @db.VarChar(255)
-  state         String
-  stateInitials String
-  zip           String
-  population    Int
-}
-
-model FeatureRequest {
-  id            Int      @id @default(autoincrement())
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-  subject       String
-  body          String
-  status        Status   @default(SUBMITTED)
-  user          User     @relation(fields: [userId], references: [id])
-  userId        Int
-
-  @@map("feature_requests")
-}
-
-enum Status {
-  SUBMITTED     @map("Submitted")
-  CONFIRMED     @map("Confirmed")
-  IN_PROGRESS   @map("In Progress")
-  COMPLETED     @map("Completed")
-  CANCELLED     @map("Cancelled")
+  @@map("sessions")
 }
 
 model User {
-  id              Int         @id @default(autoincrement())
+  id              String         @id @default(uuid())
   createdAt       DateTime    @default(now())
   updatedAt       DateTime    @updatedAt
   firstName       String
   lastName        String
   email           String      @unique
-  phoneNumber     String?
-  gender          String?
-  birthday        DateTime?
-  city            String
-  state           String
-  featureRequests FeatureRequest[]
   accounts        Account[]
   sessions        Session[]
+
+  @@map("users")
 }
 
 model VerificationToken {
@@ -92,4 +58,5 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+  @@map("verificationTokens")
 }

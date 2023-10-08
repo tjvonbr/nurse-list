@@ -8,5 +8,9 @@ export const navigationItems = {
       name: "Pricing",
       href: "/#pricing",
     },
+    {
+      name: "Recruiters",
+      href: "/recruiters",
+    },
   ],
 };
