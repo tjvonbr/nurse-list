@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Spinner from "./common/Spinner";
 import { signIn } from "next-auth/react";
+import { Input } from "./common/Input";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -21,16 +22,16 @@ export default function LoginForm() {
   }
 
   return (
-    <form className="w-full flex flex-col items-center space-y-3">
+    <form className="w-full flex flex-col items-center space-y-2">
       <fieldset className="w-full flex flex-col">
         <label className="text-xs font-semibold" htmlFor="email">
           Email
         </label>
-        <input
-          className="h-10 m-0 px-2 py-1 border border-slate-200 rounded-md text-sm"
+        <Input
           id="email"
           name="email"
           type="text"
+          placeholder="name@example.com"
           value={email}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setEmail(e.target.value)
@@ -38,7 +39,7 @@ export default function LoginForm() {
         />
       </fieldset>
       <button
-        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-white"
+        className="h-9 w-full flex justify-center items-center rounded-md text-sm bg-indigo-600 hover:bg-indigo-700 transition-colors text-gray-50"
         disabled={isLoggingIn}
         onClick={handleSubmit}
       >
