@@ -1,3 +1,4 @@
+import { Icons } from "@/components/common/Icons";
 import LoginForm from "@/components/LoginForm";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -9,12 +10,14 @@ export const metadata: Metadata = {
 
 export default function Login() {
   return (
-    <div className="h-screen w-screen flex flex-col justify-center items-center">
-      <header className="w-full absolute left-3 top-2 flex justify-between items-center">
-        <Link className="text-xl text-black font-bold" href="/">
-          NurseList
-        </Link>
-      </header>
+    <div className="h-screen w-screen relative flex flex-col justify-center items-center">
+      <Link
+        href="/"
+        className="absolute top-10 left-10 flex items-center space-x-2"
+      >
+        <Icons.left color="black" size={20} />
+        <p className="text-black">Back</p>
+      </Link>
       <div className="w-1/4 flex flex-col justify-center items-center space-y-3">
         <div className="flex flex-col items-center space-y-1">
           <h1 className="text-2xl text-black font-bold">Welcome back!</h1>

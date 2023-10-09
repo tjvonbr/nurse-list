@@ -1,6 +1,6 @@
 import { Feature, features } from "@/config/features";
 import HomeOperations from "@/components/HomeOperations";
-import { icons } from "@/config/icons";
+import { Icons } from "@/components/common/Icons";
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
@@ -40,7 +40,7 @@ export default function Home() {
 
         <div className="box-content my-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {features.map((feature: Feature, idx: number) => {
-            const Icon = icons[feature.icon];
+            const Icon = Icons[feature.icon || "hello"];
 
             return (
               <div

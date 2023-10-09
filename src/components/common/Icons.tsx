@@ -1,4 +1,5 @@
 import {
+  ChevronLeft,
   HeartHandshake,
   Home,
   PartyPopper,
@@ -12,7 +13,8 @@ export interface Icons {
   [key: string]: LucideIcon;
 }
 
-export const icons: Icons = {
+export const Icons: Icons = {
+  left: ChevronLeft,
   heartHandshake: HeartHandshake,
   home: Home,
   partyPopper: PartyPopper,

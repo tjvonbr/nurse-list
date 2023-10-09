@@ -1,4 +1,5 @@
 import RegisterForm from "@/components/RegisterForm";
+import { Icons } from "@/components/common/Icons";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -18,13 +19,16 @@ export default function Register({ searchParams }: RegisterProps) {
 
   return (
     <div className="grid grid-cols-2">
-      <div className="bg-slate-100" />
+      <div className="relative bg-slate-100">
+        <Link
+          href="/"
+          className="absolute top-10 left-10 flex items-center space-x-2"
+        >
+          <Icons.left color="black" size={20} />
+          <p className="text-black">Back</p>
+        </Link>
+      </div>
       <div className="h-screen w-full flex flex-col justify-center items-center">
-        <header className="w-full absolute left-3 top-2 flex justify-between items-center">
-          <Link className="text-xl text-black font-bold" href="/">
-            NurseList
-          </Link>
-        </header>
         <div className="w-1/2 flex flex-col justify-center items-center space-y-3">
           <h1 className="text-2xl text-black font-bold">Welcome!</h1>
           <p className="text-center text-sm text-gray-600">
