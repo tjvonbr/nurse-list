@@ -76,7 +76,7 @@ export default function RecruiterForm() {
         onChange={handleChange}
       />
       <button
-        className="w-full h-9 flex justify-center items-center bg-black rounded-md text-sm transition-colors"
+        className="w-full h-9 flex justify-center items-center bg-indigo-600 hover:bg-indigo-700 rounded-md text-sm transition-colors"
         disabled={disabled || isLoading}
         onClick={handleSubmit}
       >

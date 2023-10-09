@@ -26,7 +26,7 @@ export default function Register({ searchParams }: RegisterProps) {
           </Link>
         </header>
         <div className="w-1/2 flex flex-col justify-center items-center space-y-3">
-          <h1 className="text-3xl text-black font-bold">Welcome!</h1>
+          <h1 className="text-2xl text-black font-bold">Welcome!</h1>
           <p className="text-center text-sm text-gray-600">
             Please fill out the fields below so we can get you started!
           </p>
