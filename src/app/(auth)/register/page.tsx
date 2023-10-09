@@ -15,7 +15,6 @@ interface RegisterProps {
 
 export default function Register({ searchParams }: RegisterProps) {
   const email = searchParams.email ?? null;
-  console.log(email);
 
   return (
     <div className="grid grid-cols-2">
