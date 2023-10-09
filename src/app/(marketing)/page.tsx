@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Script from "next/script";
 import { Check } from "lucide-react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "NurseList",
@@ -95,9 +96,12 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <button className="w-full md:w-1/2 mt-12 bg-purple-600 hover:bg-blue-700 transition-colors rounded-md h-10">
+          <Link
+            href="/register"
+            className="w-full md:w-1/2 mt-12 flex justify-center items-center bg-purple-600 hover:bg-purple-700 transition-colors rounded-md h-10"
+          >
             Get started!
-          </button>
+          </Link>
         </div>
       </section>
     </main>
