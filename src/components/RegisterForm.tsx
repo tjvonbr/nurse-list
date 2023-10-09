@@ -4,36 +4,38 @@ import { useState } from "react";
 import Spinner from "./common/Spinner";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { Input } from "./common/Input";
 
-export default function RegisterForm() {
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
-  const [city, setCity] = useState("");
-  const [state, setState] = useState("");
-  const [isRegistering, setIsRegistering] = useState(false);
+export default function RegisterForm({ email }: { email: string | null }) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState({
+    firstName: "",
+    lastName: "",
+    email: email ?? "",
+    birthday: "",
+  });
 
   const router = useRouter();
 
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
+    setUser({ ...user, [e.target.name]: e.target.value });
+  }
+
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-
-    setIsRegistering(true);
+    setIsLoading(true);
 
     const response = await fetch("http://localhost:3000/api/register", {
       method: "POST",
       body: JSON.stringify({
-        firstName,
-        lastName,
-        email,
-        birthday,
-        city,
-        state,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        birthday: user.birthday,
       }),
     });
 
-    setIsRegistering(false);
+    setIsLoading(false);
 
     if (!response.ok) {
       return toast.error("Oh no!  Something went wrong signing you up!");
@@ -45,103 +47,59 @@ export default function RegisterForm() {
 
   return (
     <form className="w-full flex flex-col items-center space-y-3">
-      <fieldset className="w-full flex flex-col">
-        <label className="text-xs font-semibold" htmlFor="firstName">
+      <fieldset className="w-full flex flex-col space-y-1">
+        <label className="text-xs text-black font-semibold" htmlFor="firstName">
           First name
         </label>
-        <input
-          className="h-10 m-0 px-2 py-1 border border-slate-200 rounded-md text-sm"
+        <Input
           type="text"
           name="firstName"
           id="firstName"
-          value={firstName}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setFirstName(e.target.value)
-          }
+          value={user.firstName}
+          onChange={handleChange}
         />
       </fieldset>
-      <fieldset className="w-full flex flex-col">
-        <label className="text-xs font-semibold" htmlFor="lastName">
+      <fieldset className="w-full flex flex-col space-y-1">
+        <label className="text-xs text-black font-semibold" htmlFor="lastName">
           Last name
         </label>
-        <input
-          className="h-10 m-0 px-2 py-1 border border-slate-200 rounded-md text-sm"
+        <Input
           type="text"
           name="lastName"
           id="lastName"
-          value={lastName}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setLastName(e.target.value)
-          }
+          value={user.lastName}
+          onChange={handleChange}
         />
       </fieldset>
-      <fieldset className="w-full flex flex-col">
-        <label className="text-xs font-semibold" htmlFor="email">
+      <fieldset className="w-full flex flex-col space-y-1">
+        <label className="text-xs text-black font-semibold" htmlFor="email">
           Email
         </label>
-        <input
-          className="h-10 m-0 px-2 py-1 w-full border border-slate-200 rounded-md text-sm"
+        <Input
           type="email"
           name="email"
           id="email"
-          value={email}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setEmail(e.target.value)
-          }
+          value={user.email}
+          onChange={handleChange}
         />
       </fieldset>
-      <fieldset className="w-full flex flex-col">
-        <label className="text-xs font-semibold" htmlFor="firstName">
+      <fieldset className="w-full flex flex-col space-y-1">
+        <label className="text-xs text-black font-semibold" htmlFor="firstName">
           Birthday
         </label>
-        <input
-          className="h-10 m-0 px-2 py-1 border border-slate-200 rounded-md text-sm"
+        <Input
           type="date"
           name="birthday"
           id="birthday"
-          value={birthday}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-            setBirthday(e.target.value);
-          }}
+          value={user.birthday}
+          onChange={handleChange}
         />
       </fieldset>
-      <div className="w-full flex items-center space-x-4">
-        <fieldset className="w-[75%] flex flex-col">
-          <label className="text-xs font-semibold" htmlFor="city">
-            City
-          </label>
-          <input
-            className="h-10 m-0 px-2 py-1 border border-slate-200 rounded-md text-sm"
-            type="text"
-            name="city"
-            id="city"
-            value={city}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setCity(e.target.value);
-            }}
-          />
-        </fieldset>
-        <fieldset className="w-[25%] flex flex-col">
-          <label className="text-xs font-semibold" htmlFor="state">
-            State
-          </label>
-          <input
-            className="h-10 m-0 px-2 py-1 border border-slate-200 rounded-md text-sm"
-            type="text"
-            name="state"
-            id="state"
-            value={state}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-              setState(e.target.value);
-            }}
-          />
-        </fieldset>
-      </div>
       <button
-        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-white"
+        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-indigo-600 hover:bg-indigo-700 transition-colors text-white"
         onClick={handleSubmit}
       >
-        {isRegistering ? <Spinner color="white" size={15} /> : "Submit"}
+        {isLoading ? <Spinner color="white" size={15} /> : "Submit"}
       </button>
     </form>
   );
