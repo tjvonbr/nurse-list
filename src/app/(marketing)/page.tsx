@@ -98,7 +98,7 @@ export default function Home() {
           </div>
           <Link
             href="/register"
-            className="w-full md:w-1/2 mt-12 flex justify-center items-center bg-purple-600 hover:bg-purple-700 transition-colors rounded-md h-10"
+            className="w-full md:w-1/2 mt-12 flex justify-center items-center bg-blue-600 hover:bg-blue-700 transition-colors rounded-md h-10"
           >
             Get started!
           </Link>

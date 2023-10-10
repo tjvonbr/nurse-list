@@ -13,7 +13,7 @@ export default function Navbar() {
             return (
               <Link
                 key={idx}
-                className="text-sm text-black hover:text-gray-600 font-semibold transition-colors"
+                className="text-sm text-black hover:text-slate-600 font-semibold transition-colors"
                 href={item.href}
               >
                 {item.name}

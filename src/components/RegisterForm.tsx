@@ -96,7 +96,7 @@ export default function RegisterForm({ email }: { email: string | null }) {
         />
       </fieldset>
       <button
-        className="h-10 w-full flex justify-center items-center rounded-md text-sm bg-indigo-600 hover:bg-indigo-700 transition-colors text-white"
+        className="h-10 w-full flex justify-center items-center rounded-md bg-blue-600 hover:bg-blue-700 transition-colors text-sm text-slate-200"
         onClick={handleSubmit}
       >
         {isLoading ? <Spinner color="white" size={15} /> : "Submit"}
