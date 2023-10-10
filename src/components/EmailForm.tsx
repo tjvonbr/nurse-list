@@ -1,8 +1,9 @@
 "use client";
 
+import { Input } from "./common/Input";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
-import { Input } from "./common/Input";
 
 export default function EmailForm() {
   const [email, setEmail] = useState("");
@@ -24,8 +25,15 @@ export default function EmailForm() {
     setEmail(e.target.value);
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+
+    await fetch("http://localhost:3000/api/mailchimp", {
+      method: "POST",
+      body: JSON.stringify({
+        email,
+      }),
+    });
 
     router.push("register" + "?" + createQueryString("email", email));
   }
