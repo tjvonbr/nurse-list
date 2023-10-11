@@ -32,6 +32,7 @@ export default function EmailForm() {
       method: "POST",
       body: JSON.stringify({
         email,
+        tags: [],
       }),
     });
 

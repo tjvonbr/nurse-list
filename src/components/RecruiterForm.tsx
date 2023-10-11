@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Input } from "./common/Input";
 import toast from "react-hot-toast";
 import Spinner from "./common/Spinner";
+import { mailchimp } from "@/services/mailchimp";
 
 export default function RecruiterForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -24,7 +25,20 @@ export default function RecruiterForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("http://localhost:3000/api/notion", {
+    const mailchimpResponse = await fetch(
+      "http://localhost:3000/api/mailchimp",
+      {
+        method: "POST",
+        body: JSON.stringify({
+          firstName: recruiter.firstName,
+          lastName: recruiter.lastName,
+          email: recruiter.email,
+          tags: ["Recruiter"],
+        }),
+      }
+    );
+
+    const notionResponse = await fetch("http://localhost:3000/api/notion", {
       method: "POST",
       body: JSON.stringify({
         firstName: recruiter.firstName,
@@ -35,7 +49,7 @@ export default function RecruiterForm() {
 
     setIsLoading(false);
 
-    if (!response.ok) {
+    if (!mailchimpResponse.ok || !notionResponse.ok) {
       return toast.error(
         "Whoops!  Something went wrong.  Please reach out to trevor@gonurselist.com!"
       );
