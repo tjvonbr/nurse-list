@@ -53,28 +53,48 @@ export default function RecruiterForm() {
   }
 
   return (
-    <form className="w-full space-y-2">
-      <Input
-        type="text"
-        placeholder="First name (required)"
-        name="firstName"
-        value={recruiter.firstName}
-        onChange={handleChange}
-      />
-      <Input
-        type="text"
-        placeholder="Last name (required)"
-        name="lastName"
-        value={recruiter.lastName}
-        onChange={handleChange}
-      />
-      <Input
-        type="email"
-        placeholder="Email (required)"
-        name="email"
-        value={recruiter.email}
-        onChange={handleChange}
-      />
+    <>
+      <form className="w-full flex flex-col items-center space-y-3">
+        <fieldset className="w-full flex flex-col space-y-1">
+          <label
+            className="text-xs text-black font-semibold"
+            htmlFor="firstName"
+          >
+            First name
+          </label>
+          <Input
+            type="text"
+            name="firstName"
+            value={recruiter.firstName}
+            onChange={handleChange}
+          />
+        </fieldset>
+        <fieldset className="w-full flex flex-col space-y-1">
+          <label
+            className="text-xs text-black font-semibold"
+            htmlFor="lastName"
+          >
+            Last name
+          </label>
+          <Input
+            type="text"
+            name="lastName"
+            value={recruiter.lastName}
+            onChange={handleChange}
+          />
+        </fieldset>
+        <fieldset className="w-full flex flex-col space-y-1">
+          <label className="text-xs text-black font-semibold" htmlFor="email">
+            Email
+          </label>
+          <Input
+            type="email"
+            name="email"
+            value={recruiter.email}
+            onChange={handleChange}
+          />
+        </fieldset>
+      </form>
       <button
         className="w-full h-9 flex justify-center items-center bg-blue-600 hover:bg-blue-700 rounded-md text-sm text-slate-200 transition-colors"
         disabled={disabled || isLoading}
@@ -82,6 +102,6 @@ export default function RecruiterForm() {
       >
         {isLoading ? <Spinner size={15} /> : "Submit"}
       </button>
-    </form>
+    </>
   );
 }
