@@ -1,4 +1,5 @@
 import { db } from "@/lib/prisma";
+import { createListMember } from "@/services/mailchimp";
 import { Status } from "@/types/feature-requests";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -21,6 +22,8 @@ export async function POST(req: NextRequest) {
         email: body.email,
       },
     });
+
+    await createListMember(body);
 
     return NextResponse.json(user);
   } catch (error) {

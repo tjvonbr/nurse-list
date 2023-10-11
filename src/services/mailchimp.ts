@@ -1,3 +1,4 @@
+import crypto from "crypto";
 import mailchimp from "@mailchimp/mailchimp_marketing";
 
 const mailchimpKey = process.env.MAILCHIMP_API_KEY || "";
@@ -9,3 +10,27 @@ mailchimp.setConfig({
 });
 
 export { audienceId, mailchimp };
+
+export async function createListMember(params: {
+  firstName: string;
+  lastName: string;
+  email: string;
+}) {
+  const subscriberHash = crypto
+    .createHash("md5")
+    .update(params.email.toLowerCase())
+    .digest("hex");
+
+  const response = mailchimp.lists.updateListMember(
+    audienceId,
+    subscriberHash,
+    {
+      merge_fields: {
+        FNAME: params.firstName,
+        LNAME: params.lastName,
+      },
+    }
+  );
+
+  return response;
+}

@@ -4,9 +4,11 @@ import { Input } from "./common/Input";
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
+import Spinner from "./common/Spinner";
 
 export default function EmailForm() {
   const [email, setEmail] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const router = useRouter();
   const searchParams = useSearchParams()!;
@@ -27,6 +29,7 @@ export default function EmailForm() {
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
+    setIsLoading(true);
 
     await fetch("http://localhost:3000/api/mailchimp", {
       method: "POST",
@@ -35,6 +38,8 @@ export default function EmailForm() {
         tags: [],
       }),
     });
+
+    setIsLoading(false);
 
     router.push("register" + "?" + createQueryString("email", email));
   }
@@ -52,7 +57,7 @@ export default function EmailForm() {
         className="w-full sm:w-[160px] h-9 py-3 px-3 flex flex-row justify-center items-center rounded-md bg-blue-600 hover:bg-blue-700 transition-colors text-md"
         onClick={handleSubmit}
       >
-        Join now!
+        {isLoading ? <Spinner color="white" size={15} /> : "Join now!"}
       </button>
     </form>
   );
