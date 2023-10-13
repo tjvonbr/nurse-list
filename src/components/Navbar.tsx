@@ -1,13 +1,17 @@
 import { navigationItems } from "@/config/navigation";
 import Link from "next/link";
+import NurseListLogo from "./NurseListLogo";
 
 export default function Navbar() {
   return (
     <header className="w-full px-10 flex justify-between items-center">
       <div className="flex items-center space-x-10">
-        <Link className="text-xl text-black font-bold" href="/">
-          NurseList
-        </Link>
+        <div className="flex items-center">
+          <NurseListLogo />
+          <Link className="text-xl text-black font-bold" href="/">
+            NurseList
+          </Link>
+        </div>
         <nav className="hidden sm:flex space-x-10">
           {navigationItems.marketing.map((item, idx) => {
             return (
