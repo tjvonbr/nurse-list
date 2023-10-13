@@ -1,3 +1,5 @@
+"use client";
+
 import { navigationItems } from "@/config/navigation";
 import Link from "next/link";
 import NurseListLogo from "./NurseListLogo";
@@ -25,6 +27,20 @@ export default function Navbar() {
             );
           })}
         </nav>
+      </div>
+      <div className="flex items-center space-x-4">
+        <Link
+          href="/login"
+          className="h-9 px-3 flex justify-center items-center border border-slate-300 bg-transparent hover:bg-slate-50 transition-colors rounded-md text-sm text-black font-medium"
+        >
+          Log in
+        </Link>
+        <Link
+          href="/register"
+          className="h-9 px-3 flex justify-center items-center bg-blue-600 hover:bg-blue-700 transition-colors rounded-md text-sm text-white font-medium"
+        >
+          Sign up
+        </Link>
       </div>
     </header>
   );
