@@ -3,6 +3,8 @@
 import { navigationItems } from "@/config/navigation";
 import Link from "next/link";
 import NurseListLogo from "./NurseListLogo";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./common/Button";
 
 export default function Navbar() {
   return (
@@ -31,13 +33,13 @@ export default function Navbar() {
       <div className="flex items-center space-x-4">
         <Link
           href="/login"
-          className="h-9 px-3 flex justify-center items-center border border-slate-300 bg-transparent hover:bg-slate-50 transition-colors rounded-md text-sm text-black font-medium"
+          className={cn(buttonVariants({ variant: "outline" }))}
         >
           Log in
         </Link>
         <Link
           href="/register"
-          className="h-9 px-3 flex justify-center items-center bg-blue-600 hover:bg-blue-700 transition-colors rounded-md text-sm text-white font-medium"
+          className={cn(buttonVariants({ variant: "default" }))}
         >
           Sign up
         </Link>
