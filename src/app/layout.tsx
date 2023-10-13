@@ -1,24 +1,30 @@
-"use client";
-
-import { Session } from "next-auth";
 import "./globals.css";
-import { SessionProvider } from "next-auth/react";
+import { Metadata } from "next";
+import NextAuthProvider from "@/components/NextAuthProvider";
+import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "react-hot-toast";
 
-interface RootLayoutProps {
-  children: React.ReactNode;
-  session: Session;
-}
+export const metadata: Metadata = {
+  title: {
+    default: siteConfig.name,
+    template: `%s | ${siteConfig.name}`,
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
+};
 
-export default function RootLayout({ children, session }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <SessionProvider session={session}>
-      <html lang="en">
-        <body>
-          {children}
-          <Toaster position="bottom-right" />
-        </body>
-      </html>
-    </SessionProvider>
+    <html lang="en">
+      <body>
+        <NextAuthProvider>{children}</NextAuthProvider>
+        <Toaster />
+      </body>
+    </html>
   );
 }
