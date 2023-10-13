@@ -3,6 +3,7 @@ import Image from "next/image";
 import imageSrc from "public/two_nurses_talking.svg";
 import Link from "next/link";
 import RegisterForm from "@/components/RegisterForm";
+import NurseListLogo from "@/components/NurseListLogo";
 
 interface RegisterProps {
   searchParams: {
@@ -32,6 +33,7 @@ export default function Register({ searchParams }: RegisterProps) {
       </div>
       <div className="h-screen w-full flex flex-col justify-center items-center">
         <div className="w-1/2 flex flex-col justify-center items-center space-y-3">
+          <NurseListLogo />
           <h1 className="text-2xl text-black font-bold">Welcome!</h1>
           <p className="text-center text-sm text-gray-600">
             Please fill out the fields below so we can get you started!

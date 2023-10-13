@@ -3,6 +3,7 @@ import { Icons } from "@/components/common/Icons";
 import Image from "next/image";
 import imageSrc from "public/pleasant_hospital.svg";
 import Link from "next/link";
+import NurseListLogo from "@/components/NurseListLogo";
 
 export default function Recruiters() {
   return (
@@ -25,6 +26,7 @@ export default function Recruiters() {
       <div className="h-screen flex flex-col justify-center items-center">
         <div className="w-1/2 flex flex-col justify-center items-center space-y-4">
           <div className="flex flex-col items-center space-y-2">
+            <NurseListLogo />
             <h1 className="text-3xl text-black font-bold">Recruiters</h1>
             <p className="w-full text-center text-sm text-slate-600">
               If you work for a travel nursing agency or you&apos;re an

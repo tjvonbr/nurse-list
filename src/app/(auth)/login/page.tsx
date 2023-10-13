@@ -1,6 +1,8 @@
 import { Icons } from "@/components/common/Icons";
+import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "@/components/LoginForm";
+import NurseListLogo from "@/components/NurseListLogo";
 
 export default function Login() {
   return (
@@ -14,6 +16,7 @@ export default function Login() {
       </Link>
       <div className="w-1/4 flex flex-col justify-center items-center space-y-3">
         <div className="flex flex-col items-center space-y-1">
+          <NurseListLogo />
           <h1 className="text-2xl text-black font-bold">Welcome back!</h1>
           <p className="text-center text-sm text-gray-500">
             Enter your email to sign in to your account

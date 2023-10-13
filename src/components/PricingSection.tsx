@@ -30,7 +30,7 @@ export default function PricingSection() {
         <div className="w-[90%] flex flex-col items-center space-y-8">
           <div className="w-full flex flex-row space-x-8 items-center">
             <Check color="#9333ea" size={50} />
-            <p className="text-black">
+            <p className="text-black font-medium">
               Access to our exclusive Slack channels with other nurses living in
               the city you&apos;re currently working in or would like to work in
               soon.{" "}
@@ -38,7 +38,7 @@ export default function PricingSection() {
           </div>
           <div className="w-full flex flex-row space-x-8 items-center">
             <Check color="#9333ea" size={50} />
-            <p className="text-black">
+            <p className="text-black font-medium">
               Access to our classifieds section where you can find
               fully-furnished housing and furniture for the duration of your
               contract.
@@ -46,7 +46,7 @@ export default function PricingSection() {
           </div>
           <div className="w-full flex flex-row space-x-8 items-center">
             <Check color="#9333ea" size={50} />
-            <p className="text-black">
+            <p className="text-black font-medium">
               Reviews of cities and hospitals left by fellow travel nurses that
               have worked in the cities and hospitals you&apos;re currently
               interested in.
