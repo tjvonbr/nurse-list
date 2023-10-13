@@ -1,14 +1,8 @@
 import FeaturesSection from "@/components/FeaturesSection";
 import HomeOperations from "@/components/HomeOperations";
-import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import PricingSection from "@/components/PricingSection";
 import Script from "next/script";
-
-export const metadata: Metadata = {
-  title: "NurseList",
-  description: "Join a professional community of travel nurses with NurseList",
-};
 
 export default function Home() {
   return (
