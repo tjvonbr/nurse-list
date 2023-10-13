@@ -1,14 +1,8 @@
-import RegisterForm from "@/components/RegisterForm";
 import { Icons } from "@/components/common/Icons";
 import Image from "next/image";
-import { Metadata } from "next";
-import Link from "next/link";
 import imageSrc from "public/two_nurses_talking.svg";
-
-export const metadata: Metadata = {
-  title: "NurseList | Register",
-  description: "Sign up with NurseList",
-};
+import Link from "next/link";
+import RegisterForm from "@/components/RegisterForm";
 
 interface RegisterProps {
   searchParams: {
