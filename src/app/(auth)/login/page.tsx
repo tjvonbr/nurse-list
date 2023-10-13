@@ -1,12 +1,6 @@
 import { Icons } from "@/components/common/Icons";
-import LoginForm from "@/components/LoginForm";
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "NurseList | Login",
-  description: "Login to your account",
-};
+import LoginForm from "@/components/LoginForm";
 
 export default function Login() {
   return (
