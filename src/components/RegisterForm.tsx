@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Spinner from "./common/Spinner";
 import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Input } from "./common/Input";
 import { buttonVariants } from "./common/Button";
 import { cn } from "@/lib/utils";
+import { signIn } from "next-auth/react";
 
 export default function RegisterForm({ email }: { email: string | null }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,6 +17,8 @@ export default function RegisterForm({ email }: { email: string | null }) {
     email: email ?? "",
     birthday: "",
   });
+
+  const searchParams = useSearchParams();
 
   const isDisabled =
     user.firstName.length < 1 ||
@@ -33,19 +36,25 @@ export default function RegisterForm({ email }: { email: string | null }) {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch("http://localhost:3000/api/register", {
-      method: "POST",
-      body: JSON.stringify({
-        firstName: user.firstName,
-        lastName: user.lastName,
-        email: user.email,
-        birthday: user.birthday,
-      }),
+    const signInResult = await signIn("email", {
+      email: user.email.toLowerCase(),
+      redirect: false,
+      callbackUrl: searchParams?.get("from") || "/dashboard",
     });
+
+    // const response = await fetch("http://localhost:3000/api/register", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     firstName: user.firstName,
+    //     lastName: user.lastName,
+    //     email: user.email,
+    //     birthday: user.birthday,
+    //   }),
+    // });
 
     setIsLoading(false);
 
-    if (!response.ok) {
+    if (!signInResult?.ok) {
       return toast.error("Oh no!  Something went wrong signing you up!");
     } else {
       toast.success("Yay!  You're signed up.  Time to login in!");
