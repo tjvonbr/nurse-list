@@ -54,7 +54,10 @@ export default function EmailForm() {
         type="email"
         value={email}
       />
-      <button className={cn(buttonVariants({ variant: "default" }))}>
+      <button
+        className={cn(buttonVariants({ variant: "default" }))}
+        onClick={handleSubmit}
+      >
         {isLoading ? <Spinner color="white" size={15} /> : "Join now!"}
       </button>
     </form>
