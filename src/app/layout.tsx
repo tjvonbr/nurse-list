@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import NextAuthProvider from "@/components/NextAuthProvider";
 import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "react-hot-toast";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: {
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body>
         <NextAuthProvider>{children}</NextAuthProvider>
         <Toaster />
+        <Footer />
       </body>
     </html>
   );
