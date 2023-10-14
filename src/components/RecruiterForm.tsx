@@ -5,6 +5,8 @@ import { Input } from "./common/Input";
 import toast from "react-hot-toast";
 import Spinner from "./common/Spinner";
 import { mailchimp } from "@/services/mailchimp";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./common/Button";
 
 export default function RecruiterForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -110,7 +112,7 @@ export default function RecruiterForm() {
         </fieldset>
       </form>
       <button
-        className="w-full h-9 flex justify-center items-center bg-blue-600 hover:bg-blue-700 rounded-md text-sm text-slate-200 transition-colors"
+        className={cn(buttonVariants({ variant: "default" }), "w-full")}
         disabled={disabled || isLoading}
         onClick={handleSubmit}
       >

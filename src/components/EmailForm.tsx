@@ -1,10 +1,11 @@
 "use client";
 
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "./common/Button";
 import { Input } from "./common/Input";
-
+import Spinner from "./common/Spinner";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useCallback, useState } from "react";
-import Spinner from "./common/Spinner";
 
 export default function EmailForm() {
   const [email, setEmail] = useState("");
@@ -45,7 +46,7 @@ export default function EmailForm() {
   }
 
   return (
-    <form className="box-content w-full sm:w-1/2 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center">
+    <form className="sm:w-1/2 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center">
       <Input
         name="email"
         onChange={handleChange}
@@ -53,10 +54,7 @@ export default function EmailForm() {
         type="email"
         value={email}
       />
-      <button
-        className="w-full sm:w-[160px] h-9 py-3 px-3 flex flex-row justify-center items-center rounded-md bg-blue-600 hover:bg-blue-700 transition-colors text-md"
-        onClick={handleSubmit}
-      >
+      <button className={cn(buttonVariants({ variant: "default" }))}>
         {isLoading ? <Spinner color="white" size={15} /> : "Join now!"}
       </button>
     </form>

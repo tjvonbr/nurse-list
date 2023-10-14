@@ -4,6 +4,8 @@ import { Check } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { fadeInSection } from "@/lib/framer";
+import { buttonVariants } from "./common/Button";
+import { cn } from "@/lib/utils";
 
 export default function PricingSection() {
   return (
@@ -52,13 +54,13 @@ export default function PricingSection() {
               interested in.
             </p>
           </div>
+          <Link
+            href="/register"
+            className={cn(buttonVariants({ variant: "default" }), "w-1/2")}
+          >
+            Get started!
+          </Link>
         </div>
-        <Link
-          href="/register"
-          className="w-full md:w-1/2 mt-12 flex justify-center items-center bg-blue-600 hover:bg-blue-700 transition-colors rounded-md h-10"
-        >
-          Get started!
-        </Link>
       </div>
     </motion.section>
   );
