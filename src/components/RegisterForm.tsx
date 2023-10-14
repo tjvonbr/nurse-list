@@ -5,6 +5,8 @@ import Spinner from "./common/Spinner";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 import { Input } from "./common/Input";
+import { buttonVariants } from "./common/Button";
+import { cn } from "@/lib/utils";
 
 export default function RegisterForm({ email }: { email: string | null }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,6 +16,12 @@ export default function RegisterForm({ email }: { email: string | null }) {
     email: email ?? "",
     birthday: "",
   });
+
+  const isDisabled =
+    user.firstName.length < 1 ||
+    user.lastName.length < 1 ||
+    user.email.length < 1 ||
+    user.birthday.length < 1;
 
   const router = useRouter();
 
@@ -96,8 +104,9 @@ export default function RegisterForm({ email }: { email: string | null }) {
         />
       </fieldset>
       <button
-        className="h-10 w-full flex justify-center items-center rounded-md bg-blue-600 hover:bg-blue-700 transition-colors text-sm text-slate-200"
+        className={cn(buttonVariants({ variant: "default" }), "w-full")}
         onClick={handleSubmit}
+        disabled={isDisabled || isLoading}
       >
         {isLoading ? <Spinner color="white" size={15} /> : "Submit"}
       </button>

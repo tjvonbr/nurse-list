@@ -4,10 +4,14 @@ import React, { useState } from "react";
 import Spinner from "./common/Spinner";
 import { signIn } from "next-auth/react";
 import { Input } from "./common/Input";
+import { buttonVariants } from "./common/Button";
+import { cn } from "@/lib/utils";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
   const [isLoggingIn, setIsLoggingIn] = useState(false);
+
+  const isDisabled = email.length < 1;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -39,8 +43,8 @@ export default function LoginForm() {
         />
       </fieldset>
       <button
-        className="h-9 w-full flex justify-center items-center rounded-md text-sm bg-blue-600 hover:bg-blue-700 transition-colors text-slate-200"
-        disabled={isLoggingIn}
+        className={cn(buttonVariants({ variant: "default" }), "w-full")}
+        disabled={isDisabled || isLoggingIn}
         onClick={handleSubmit}
       >
         {isLoggingIn ? <Spinner color="white" size={15} /> : "Submit"}

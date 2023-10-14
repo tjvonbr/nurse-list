@@ -2,12 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-rgb: 255, 255, 255;
-}
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 47.4% 11.2%;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-rgb));
+    --accent: 241, 245, 249;
+    --accent-foreground: 15, 23, 42;
+
+    --primary: 37, 100, 235;
+    --primary-foreground: 245, 250, 255;
+
+    --border: 241, 245, 249;
+    --input: 226, 232, 240;
+  }
 }
