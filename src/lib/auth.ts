@@ -31,6 +31,7 @@ const postmarkClient = new Client(postmarkToken);
 
 const signInTemplateId = process.env.POSTMARK_SIGNIN_TEMPLATE_ID || "";
 const welcomeTemplateId = process.env.POSTMARK_WELCOME_TEMPLATE_ID || "";
+const nextAuthSecret = process.env.NEXTAUTH_SECRET || "";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(db) as any,
@@ -39,6 +40,7 @@ export const authOptions: NextAuthOptions = {
     maxAge: THIRTY_DAYS,
     updateAge: THIRTY_MINUTES,
   },
+  secret: nextAuthSecret,
   debug: true,
   pages: {
     signIn: "/login",
