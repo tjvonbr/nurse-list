@@ -39,6 +39,15 @@ model Session {
   @@map("sessions")
 }
 
+model ContractReview {
+  id              String        @id @default(uuid())
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+  formResponse    Json
+
+  @@map("contractReviews")
+}
+
 model User {
   id              String        @id @default(uuid())
   createdAt       DateTime      @default(now())
