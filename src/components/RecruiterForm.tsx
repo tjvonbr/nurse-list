@@ -38,7 +38,7 @@ export default function RecruiterForm() {
       }),
     });
 
-    const notionResponse = await fetch(baseUrl + "api/notion", {
+    const notionResponse = await fetch(baseUrl + "/api/notion", {
       method: "POST",
       body: JSON.stringify({
         firstName: recruiter.firstName,
