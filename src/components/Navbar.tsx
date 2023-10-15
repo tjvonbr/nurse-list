@@ -8,12 +8,12 @@ import { buttonVariants } from "./common/Button";
 
 export default function Navbar() {
   return (
-    <header className="w-full px-10 flex justify-between items-center">
+    <header className="w-full px-10 py-5 flex justify-between items-center">
       <div className="flex items-center space-x-10">
         <div className="flex items-center">
           <NurseListLogo />
           <Link className="text-xl text-black font-bold" href="/">
-            NurseList
+            nurselist
           </Link>
         </div>
         <nav className="hidden sm:flex space-x-10">
@@ -31,6 +31,12 @@ export default function Navbar() {
         </nav>
       </div>
       <div className="flex items-center space-x-4">
+        <Link
+          href="/contact"
+          className={cn(buttonVariants({ variant: "ghost" }))}
+        >
+          Contact
+        </Link>
         <Link
           href="/login"
           className={cn(buttonVariants({ variant: "outline" }))}
