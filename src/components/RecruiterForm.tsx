@@ -1,13 +1,12 @@
 "use client";
 
 import { baseUrl } from "@/lib/consts";
-import { useState } from "react";
-import { Input } from "./common/Input";
-import toast from "react-hot-toast";
-import Spinner from "./common/Spinner";
-import { mailchimp } from "@/services/mailchimp";
-import { cn } from "@/lib/utils";
 import { buttonVariants } from "./common/Button";
+import { cn } from "@/lib/utils";
+import { Input } from "./common/Input";
+import Spinner from "./common/Spinner";
+import toast from "react-hot-toast";
+import { useState } from "react";
 
 export default function RecruiterForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +27,7 @@ export default function RecruiterForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const mailchimpResponse = await fetch(baseUrl + "api/mailchimp", {
+    const mailchimpResponse = await fetch(baseUrl + "/api/mailchimp", {
       method: "POST",
       body: JSON.stringify({
         firstName: recruiter.firstName,
@@ -51,7 +50,7 @@ export default function RecruiterForm() {
 
     if (!mailchimpResponse.ok || !notionResponse.ok) {
       return toast.error(
-        "Whoops!  Something went wrong.  Please reach out to trevor@gonurselist.com!"
+        "Whoops!  Something went wrong.  Please reach out to support@gonurselist.com!"
       );
     }
 
