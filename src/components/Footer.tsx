@@ -8,9 +8,9 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="flex flex-col justify-center items-center space-y-2 bg-white py-10 border-t border-input">
+    <footer className="h-20 w-full absolute bottom-0 flex justify-center items-center space-x-4 bg-white border-t border-input">
       <small>{`NurseList ©️ ${currentYear}`}</small>
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-2">
         {socials.map((social: Social, idx: number) => {
           const Icon = Icons[social.icon];
 
@@ -20,7 +20,7 @@ export default function Footer() {
               key={idx}
               href={social.href}
             >
-              <Icon size={25} />
+              <Icon size={20} />
             </Link>
           );
         })}
