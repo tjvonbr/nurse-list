@@ -1,5 +1,6 @@
 "use client";
 
+import { baseUrl } from "@/lib/consts";
 import { useState } from "react";
 import { Input } from "./common/Input";
 import toast from "react-hot-toast";
@@ -27,20 +28,17 @@ export default function RecruiterForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const mailchimpResponse = await fetch(
-      "http://localhost:3000/api/mailchimp",
-      {
-        method: "POST",
-        body: JSON.stringify({
-          firstName: recruiter.firstName,
-          lastName: recruiter.lastName,
-          email: recruiter.email,
-          tags: ["Recruiter"],
-        }),
-      }
-    );
+    const mailchimpResponse = await fetch(baseUrl + "api/mailchimp", {
+      method: "POST",
+      body: JSON.stringify({
+        firstName: recruiter.firstName,
+        lastName: recruiter.lastName,
+        email: recruiter.email,
+        tags: ["Recruiter"],
+      }),
+    });
 
-    const notionResponse = await fetch("http://localhost:3000/api/notion", {
+    const notionResponse = await fetch(baseUrl + "api/notion", {
       method: "POST",
       body: JSON.stringify({
         firstName: recruiter.firstName,

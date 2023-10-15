@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import Spinner from "./common/Spinner";
-import { signIn } from "next-auth/react";
-import { Input } from "./common/Input";
 import { buttonVariants } from "./common/Button";
 import { cn } from "@/lib/utils";
+import { Input } from "./common/Input";
+import React, { useState } from "react";
+import { signIn } from "next-auth/react";
+import Spinner from "./common/Spinner";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
