@@ -1,10 +1,11 @@
 import "./globals.css";
+import Footer from "@/components/Footer";
 import { Metadata } from "next";
+import Navbar from "@/components/Navbar";
 import NextAuthProvider from "@/components/NextAuthProvider";
+import PlausibleProvider from "next-plausible";
 import { siteConfig } from "@/config/siteConfig";
 import { Toaster } from "react-hot-toast";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: {
@@ -24,13 +25,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <PlausibleProvider domain="gonurselist.com" trackOutboundLinks={true} />
+      </head>
       <body className="relative">
         <NextAuthProvider>
           <Navbar />
           {children}
+          <Toaster />
+          <Footer />
         </NextAuthProvider>
-        <Toaster />
-        <Footer />
       </body>
     </html>
   );
