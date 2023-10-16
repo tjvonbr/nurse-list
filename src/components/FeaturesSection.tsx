@@ -32,7 +32,7 @@ export default function FeaturesSection() {
 
           return (
             <motion.div
-              className="md:w-[300px] p-5 flex flex-col space-y-2 rounded-md bg-slate-100 border border-slate-300"
+              className="md:w-[300px] p-5 flex flex-col space-y-2 rounded-md bg-slate-100 border border-slate-300 shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
               key={idx}
               variants={fadeInListItems}
               initial="rest"
