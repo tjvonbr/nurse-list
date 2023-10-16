@@ -23,7 +23,7 @@ export default function PricingSection() {
       <p className="w-full text-center text-3xl text-black font-bold">
         Level up your travel experience
       </p>
-      <div className="w-full p-5 my-10 md:w-[600px] flex flex-col items-center rounded-md bg-slate-100 border border-slate-300">
+      <div className="w-full p-5 my-10 md:w-[600px] flex flex-col items-center rounded-md bg-slate-100 border border-slate-300 shadow-[0_8px_30px_rgb(0,0,0,0.12)]">
         <p className="text-4xl text-black font-bold">Basic</p>
         <p className="mt-4 text-5xl from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent font-bold">
           $29/month
