@@ -26,22 +26,17 @@ export default function LoginForm() {
   }
 
   return (
-    <form className="w-full flex flex-col items-center space-y-2">
-      <fieldset className="w-full flex flex-col">
-        <label className="text-xs font-semibold" htmlFor="email">
-          Email
-        </label>
-        <Input
-          id="email"
-          name="email"
-          type="text"
-          placeholder="name@example.com"
-          value={email}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setEmail(e.target.value)
-          }
-        />
-      </fieldset>
+    <form className="w-full sm:w-1/2 lg:w-1/4 flex flex-col items-center space-y-2">
+      <Input
+        id="email"
+        name="email"
+        type="text"
+        placeholder="name@example.com"
+        value={email}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+          setEmail(e.target.value)
+        }
+      />
       <button
         className={cn(buttonVariants({ variant: "default" }), "w-full")}
         disabled={isDisabled || isLoggingIn}
