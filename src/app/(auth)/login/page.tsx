@@ -6,7 +6,7 @@ import NurseListLogo from "@/components/NurseListLogo";
 
 export default function Login() {
   return (
-    <div className="h-screen w-screen relative flex flex-col justify-center items-center">
+    <div className="h-screen w-screen px-5 relative flex flex-col justify-center items-center">
       <Link
         href="/"
         className="absolute top-10 left-10 flex items-center space-x-2"
@@ -14,7 +14,7 @@ export default function Login() {
         <Icons.left color="black" size={20} />
         <p className="text-black">Back</p>
       </Link>
-      <div className="w-1/4 flex flex-col justify-center items-center space-y-3">
+      <div className="w-full flex flex-col justify-center items-center space-y-3">
         <div className="flex flex-col items-center space-y-1">
           <NurseListLogo />
           <h1 className="text-2xl text-black font-bold">Welcome back!</h1>
