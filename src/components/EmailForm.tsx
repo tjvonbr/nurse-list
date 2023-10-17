@@ -48,7 +48,7 @@ export default function EmailForm() {
   return (
     <form className="w-full sm:w-1/2 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 items-center">
       <Input
-        className="flex-grow"
+        className="flex-grow bg-gray-50 border border-slate-300"
         name="email"
         onChange={handleChange}
         placeholder="Enter your email..."
@@ -59,7 +59,7 @@ export default function EmailForm() {
         className={cn(buttonVariants({ variant: "default" }))}
         onClick={handleSubmit}
       >
-        {isLoading ? <Spinner color="white" size={15} /> : "Join!"}
+        {isLoading ? <Spinner color="white" size={15} /> : "Submit!"}
       </button>
     </form>
   );

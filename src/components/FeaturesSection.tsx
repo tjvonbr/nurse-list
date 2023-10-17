@@ -9,7 +9,7 @@ export default function FeaturesSection() {
   return (
     <motion.section
       id="features"
-      className="flex flex-col items-center"
+      className="container space-y-6 bg-slate-50 py-8 md:py-12 lg:py-24"
       variants={fadeInSection}
       initial="rest"
       whileInView="animate"
@@ -17,18 +17,19 @@ export default function FeaturesSection() {
         once: true,
       }}
     >
-      <h2 className="text-lg md:text-xl text-purple-600 font-black">
-        Features
-      </h2>
-      <p className="w-full md:w-1/2 text-center text-3xl text-black font-bold">
-        When you join{" "}
-        <span className="font-black from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">
-          NurseList
-        </span>
-        , you get access to a handful of perks!
-      </p>
-
-      <div className="box-content my-10 px-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center">
+        <h2 className="text-lg md:text-xl text-purple-600 font-black">
+          Features
+        </h2>
+        <p className="w-full md:w-1/2 text-center text-3xl text-black font-bold">
+          When you join{" "}
+          <span className="font-black from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">
+            NurseList
+          </span>
+          , you get access to a handful of perks!
+        </p>
+      </div>
+      <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-[64rem] md:grid-cols-3">
         {features.map((feature: Feature, idx: number) => {
           const Icon = Icons[feature.icon || "hello"];
 

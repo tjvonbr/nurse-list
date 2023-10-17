@@ -10,8 +10,8 @@ interface MarketingLayoutProps {
 
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
-    <div className="min-h-screen flex flex-col ">
-      <header className="w-full md:px-10 py-5 z-40 bg-transparent">
+    <div className="min-h-screen flex flex-col">
+      <header className="container z-40 bg-white">
         <div className="flex h-20 items-center justify-between py-6">
           <MainNavbar items={navigationItems.marketing} />
           <nav className="hidden md:flex items-center space-x-4">
