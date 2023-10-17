@@ -1,6 +1,13 @@
 import Image from "next/image";
 import logoSrc from "public/nurselist_logo_black.svg";
 
-export default function NurseListLogo() {
-  return <Image src={logoSrc} alt="NurseList logo" height={50} width={50} />;
+interface NurseListLogoProps {
+  height: number;
+  width: number;
+}
+
+export default function NurseListLogo({ height, width }: NurseListLogoProps) {
+  return (
+    <Image src={logoSrc} alt="NurseList logo" height={height} width={width} />
+  );
 }
