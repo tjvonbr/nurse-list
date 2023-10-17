@@ -8,7 +8,7 @@ import { buttonVariants } from "./common/Button";
 
 export default function Navbar() {
   return (
-    <header className="w-full absolute top-0 left-0 px-10 py-10 flex justify-between items-center">
+    <header className="w-full absolute top-0 left-0 px-10 py-5 flex justify-between z-10">
       <div className="flex items-center space-x-10">
         <div className="flex items-center">
           <NurseListLogo />

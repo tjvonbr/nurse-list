@@ -1,10 +1,12 @@
+import Navbar from "@/components/Navbar";
 import { buttonVariants } from "@/components/common/Button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Contact() {
   return (
-    <div className="min-h-screen px-5 flex flex-col justify-center items-center space-y-8">
+    <div className="min-h-screen px-5 relative flex flex-col justify-center items-center space-y-8">
+      <Navbar />
       <h1 className="text-3xl sm:text-5xl text-black font-extrabold">
         Contact Us
       </h1>
