@@ -38,7 +38,6 @@ export default function MarketingLayout({ children }: MarketingLayoutProps) {
         </div>
       </header>
       <main className="flex-1">{children}</main>
-      <Footer />
     </div>
   );
 }

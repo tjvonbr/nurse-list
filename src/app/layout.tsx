@@ -27,7 +27,7 @@ export default function RootLayout({
       <head>
         <PlausibleProvider domain="gonurselist.com" trackOutboundLinks={true} />
       </head>
-      <body>
+      <body className="relative">
         <NextAuthProvider>
           {children}
           <Toaster />
