@@ -2,7 +2,7 @@ import RecruiterForm from "@/components/RecruiterForm";
 import Image from "next/image";
 import imageSrc from "public/pleasant_hospital.svg";
 import NurseListLogo from "@/components/NurseListLogo";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/MainNavbar";
 
 export default function Recruiters() {
   return (

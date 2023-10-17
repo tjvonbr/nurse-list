@@ -2,7 +2,7 @@ import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu";
 import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 
-const DropdownRoot = DropdownMenuPrimitive.Root;
+const DropdownMenu = DropdownMenuPrimitive.Root;
 
 const DropdownTrigger = DropdownMenuPrimitive.Trigger;
 
@@ -72,7 +72,7 @@ export {
   DropdownItem,
   DropdownLabel,
   DropdownPortal,
-  DropdownRoot,
+  DropdownMenu,
   DropdownSub,
   DropdownTrigger,
 };

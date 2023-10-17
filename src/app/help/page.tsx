@@ -1,5 +1,5 @@
 import HelpForm from "@/components/HelpForm";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/MainNavbar";
 
 export default function Help() {
   const blah = "sm: mt-12 md:mt-24";
