@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/MainNavbar";
 import { buttonVariants } from "@/components/common/Button";
 import { cn } from "@/lib/utils";
 import Link from "next/link";

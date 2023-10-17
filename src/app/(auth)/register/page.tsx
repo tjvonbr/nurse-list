@@ -33,7 +33,7 @@ export default function Register({ searchParams }: RegisterProps) {
       </div>
       <div className="h-screen px-5 flex flex-col justify-center items-center">
         <div className="w-full sm:w-1/2 flex flex-col justify-center items-center space-y-4">
-          <NurseListLogo />
+          <NurseListLogo height={50} width={50} />
           <h1 className="text-2xl sm:text-3xl text-black font-bold">
             Welcome!
           </h1>

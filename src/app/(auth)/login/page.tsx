@@ -16,7 +16,7 @@ export default function Login() {
       </Link>
       <div className="w-full flex flex-col justify-center items-center space-y-3">
         <div className="flex flex-col items-center space-y-1">
-          <NurseListLogo />
+          <NurseListLogo height={50} width={50} />
           <h1 className="text-2xl text-black font-bold">Welcome back!</h1>
           <p className="text-center text-sm text-gray-500">
             Enter your email to sign in to your account

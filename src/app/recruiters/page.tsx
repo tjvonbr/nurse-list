@@ -2,7 +2,7 @@ import RecruiterForm from "@/components/RecruiterForm";
 import Image from "next/image";
 import imageSrc from "public/pleasant_hospital.svg";
 import NurseListLogo from "@/components/NurseListLogo";
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/MainNavbar";
 
 export default function Recruiters() {
   return (
@@ -20,7 +20,7 @@ export default function Recruiters() {
         <div className="h-screen px-5 flex flex-col justify-center items-center">
           <div className="w-full sm:w-1/2 flex flex-col justify-center items-center space-y-4">
             <div className="flex flex-col items-center space-y-2">
-              <NurseListLogo />
+              <NurseListLogo height={50} width={50} />
               <h1 className="text-2xl sm:text-3xl text-black font-bold">
                 Recruiters
               </h1>
