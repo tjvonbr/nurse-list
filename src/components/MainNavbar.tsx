@@ -1,7 +1,5 @@
 "use client";
 
-import { buttonVariants } from "./common/Button";
-import { cn } from "@/lib/utils";
 import { Icons } from "./common/Icons";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
