@@ -17,7 +17,9 @@ export default function FeaturesSection() {
         once: true,
       }}
     >
-      <h2 className="text-xl text-purple-600 font-black">Features</h2>
+      <h2 className="text-lg md:text-xl text-purple-600 font-black">
+        Features
+      </h2>
       <p className="w-full md:w-1/2 text-center text-3xl text-black font-bold">
         When you join{" "}
         <span className="font-black from-purple-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">

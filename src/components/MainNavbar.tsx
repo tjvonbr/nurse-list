@@ -44,7 +44,7 @@ export default function MainNavbar({ items, children }: MainNavbarProps) {
         {showMobileMenu ? (
           <Icons.close size={25} />
         ) : (
-          <NurseListLogo height={25} width={25} />
+          <NurseListLogo height={50} width={50} />
         )}
         <span className="font-bold">Menu</span>
       </button>

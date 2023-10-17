@@ -19,7 +19,7 @@ export default function PricingSection() {
         once: true,
       }}
     >
-      <h2 className="text-xl text-purple-600 font-black">Pricing</h2>
+      <h2 className="text-lg md:text-xl text-purple-600 font-black">Pricing</h2>
       <p className="w-full text-center text-3xl text-black font-bold">
         Level up your travel experience
       </p>
