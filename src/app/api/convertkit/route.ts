@@ -14,18 +14,17 @@ export async function POST(req: NextRequest) {
     const body = addSubscriberSchema.parse(json);
 
     const response = await fetch(
-      `https://api.convertkit.com/v3/forms/${formId}/subscribed`,
+      `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json; charset=utf-8",
-        },
         body: JSON.stringify({
-          api_key: convertkitKey,
+          api_key: "nDhicQauGRmj3rkpQ9LaFw",
           email: body.email,
         }),
       }
     );
+
+    console.log(response);
 
     return NextResponse.json(response);
   } catch (error) {
