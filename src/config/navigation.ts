@@ -18,6 +18,10 @@ export const navigationItems: NavCongig = {
       href: "/#pricing",
     },
     {
+      name: "Newsletter",
+      href: "/newsletter",
+    },
+    {
       name: "Recruiters",
       href: "/recruiters",
     },
