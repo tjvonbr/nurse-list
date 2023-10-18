@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
     const response = await fetch(
       `https://api.convertkit.com/v3/forms/${formId}/subscribed`,
       {
+        method: "POST",
         headers: {
           "Content-Type": "application/json; charset=utf-8",
         },

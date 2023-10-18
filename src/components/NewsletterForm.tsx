@@ -22,7 +22,7 @@ export default function NewsletterForm() {
     e.preventDefault();
     setIsLoading(true);
 
-    const response = await fetch(baseUrl + "api/convertkit", {
+    const response = await fetch(baseUrl + "/api/convertkit", {
       method: "POST",
       body: JSON.stringify({
         email,
