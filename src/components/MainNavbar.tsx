@@ -15,7 +15,7 @@ export default function MainNavbar({ items, children }: MainNavbarProps) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   return (
-    <div className="flex gap-6 md:gap-10">
+    <div className="flex gap-6 md:gap-10 bg-transparent">
       <Link href="/" className="hidden items-center space-x-2 md:flex">
         <NurseListLogo height={50} width={50} />
         <span className="text-xl text-black font-bold lowercase">
