@@ -4,6 +4,7 @@ import { Icons } from "./common/Icons";
 import Link from "next/link";
 import MobileNav from "./MobileNav";
 import NurseListLogo from "./NurseListLogo";
+import { useSession } from "next-auth/react";
 import { useState } from "react";
 
 interface MainNavbarProps {
@@ -13,6 +14,9 @@ interface MainNavbarProps {
 
 export default function MainNavbar({ items, children }: MainNavbarProps) {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+
+  const session = useSession();
+  console.log(session);
 
   return (
     <div className="flex gap-6 md:gap-10 bg-transparent">

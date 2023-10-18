@@ -17,12 +17,10 @@ export default function LoginForm() {
     e.preventDefault();
     setIsLoggingIn(true);
 
-    const response = await signIn("email", {
+    await signIn("email", {
       email,
-      callbackUrl: "/dashboard",
+      callbackUrl: "/",
     });
-
-    console.log(response);
 
     setIsLoggingIn(false);
   }
