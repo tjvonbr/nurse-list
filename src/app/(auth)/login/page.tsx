@@ -1,5 +1,4 @@
 import { Icons } from "@/components/common/Icons";
-import Image from "next/image";
 import Link from "next/link";
 import LoginForm from "@/components/LoginForm";
 import NurseListLogo from "@/components/NurseListLogo";

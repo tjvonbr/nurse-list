@@ -67,32 +67,12 @@ export const authOptions: NextAuthOptions = {
           },
         });
 
-        if (!dbUser?.emailVerified) {
-          const result = await postmarkClient.sendEmailWithTemplate({
-            TemplateId: parseInt(welcomeTemplateId),
-            To: identifier,
-            From: provider.from as string,
-            TemplateModel: {
-              action_url: url,
-              product_name: siteConfig.name,
-            },
-            Headers: [
-              {
-                // Set this to prevent Gmail from threading emails.
-                // See https://stackoverflow.com/questions/23434110/force-emails-not-to-be-grouped-into-conversations/25435722.
-                Name: "X-Entity-Ref-ID",
-                Value: new Date().getTime() + "",
-              },
-            ],
-          });
-
-          if (result.ErrorCode) {
-            throw new Error(result.Message);
-          }
-        }
+        const templateId = dbUser?.emailVerified
+          ? signInTemplateId
+          : welcomeTemplateId;
 
         const result = await postmarkClient.sendEmailWithTemplate({
-          TemplateId: parseInt(signInTemplateId),
+          TemplateId: parseInt(templateId),
           To: identifier,
           From: provider.from as string,
           TemplateModel: {

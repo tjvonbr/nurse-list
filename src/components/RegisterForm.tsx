@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
-import Spinner from "./common/Spinner";
-import toast from "react-hot-toast";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Input } from "./common/Input";
+import { baseUrl } from "@/lib/consts";
 import { buttonVariants } from "./common/Button";
 import { cn } from "@/lib/utils";
+import { Input } from "./common/Input";
 import { signIn } from "next-auth/react";
+import Spinner from "./common/Spinner";
+import toast from "react-hot-toast";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm({ email }: { email: string | null }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,8 +18,6 @@ export default function RegisterForm({ email }: { email: string | null }) {
     email: email ?? "",
     birthday: "",
   });
-
-  const searchParams = useSearchParams();
 
   const isDisabled =
     user.firstName.length < 1 ||
@@ -36,21 +35,27 @@ export default function RegisterForm({ email }: { email: string | null }) {
     e.preventDefault();
     setIsLoading(true);
 
+    const dbUser = await fetch(baseUrl + "api/register", {
+      method: "POST",
+      body: JSON.stringify({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        email: user.email,
+        birthday: user.birthday,
+      }),
+    });
+
+    if (!dbUser) {
+      return toast.error(
+        "There was an error trying to sign you up.  Please reach out to support@gonurselist.com!"
+      );
+    }
+
     const signInResult = await signIn("email", {
       email: user.email.toLowerCase(),
       redirect: false,
-      callbackUrl: searchParams?.get("from") || "/dashboard",
+      callbackUrl: "/",
     });
-
-    // const response = await fetch("http://localhost:3000/api/register", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     firstName: user.firstName,
-    //     lastName: user.lastName,
-    //     email: user.email,
-    //     birthday: user.birthday,
-    //   }),
-    // });
 
     setIsLoading(false);
 
