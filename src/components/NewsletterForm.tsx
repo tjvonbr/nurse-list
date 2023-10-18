@@ -37,6 +37,7 @@ export default function NewsletterForm() {
       );
     }
 
+    setEmail("");
     return toast.success("Success!  Please check your inbox for confirmation.");
   }
 
@@ -52,7 +53,10 @@ export default function NewsletterForm() {
         value={email}
       />
       <button
-        className={cn(buttonVariants({ variant: "default" }), "w-[150px]")}
+        className={cn(
+          buttonVariants({ variant: "default" }),
+          "w-full md:w-[150px]"
+        )}
         onClick={handleSubmit}
         disabled={isDisabled || isLoading}
       >
