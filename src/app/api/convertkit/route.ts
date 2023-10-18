@@ -17,6 +17,9 @@ export async function POST(req: NextRequest) {
       `https://api.convertkit.com/v3/forms/${formId}/subscribe`,
       {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           api_key: convertkitKey,
           email: body.email,
