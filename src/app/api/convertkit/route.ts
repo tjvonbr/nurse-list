@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       {
         method: "POST",
         body: JSON.stringify({
-          api_key: "nDhicQauGRmj3rkpQ9LaFw",
+          api_key: convertkitKey,
           email: body.email,
         }),
       }
