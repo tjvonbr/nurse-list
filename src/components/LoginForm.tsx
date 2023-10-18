@@ -19,7 +19,7 @@ export default function LoginForm() {
 
     await signIn("email", {
       email,
-      callbackUrl: "/dashboard",
+      callbackUrl: "/",
     });
 
     setIsLoggingIn(false);
