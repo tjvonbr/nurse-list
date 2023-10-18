@@ -12,6 +12,8 @@ export default function NewsletterForm() {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
+  const isDisabled = email.length < 1;
+
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setEmail(e.target.value);
   }
@@ -21,6 +23,7 @@ export default function NewsletterForm() {
     setIsLoading(true);
 
     const response = await fetch(baseUrl + "api/convertkit", {
+      method: "POST",
       body: JSON.stringify({
         email,
       }),
@@ -49,8 +52,9 @@ export default function NewsletterForm() {
         value={email}
       />
       <button
-        className={cn(buttonVariants({ variant: "default" }))}
+        className={cn(buttonVariants({ variant: "default" }), "w-[150px]")}
         onClick={handleSubmit}
+        disabled={isDisabled || isLoading}
       >
         {isLoading ? <Spinner color="white" size={15} /> : "Subscribe!"}
       </button>
