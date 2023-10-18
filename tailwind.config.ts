@@ -27,6 +27,10 @@ const config: Config = {
           DEFAULT: "rgb(var(--primary))",
           foreground: "rgb(var(--primary-foreground))",
         },
+        secondary: {
+          DEFAULT: "#f1f5f9",
+          foreground: "rgb(var(--secondary-foreground))",
+        },
       },
     },
   },

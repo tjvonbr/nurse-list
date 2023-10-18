@@ -11,25 +11,31 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <div className="min-h-screen flex flex-col">
-      <header className="container z-40 bg-transparent">
+      <header className="container z-40 bg-white">
         <div className="flex h-20 items-center justify-between py-6">
           <MainNavbar items={navigationItems.marketing} />
-          <nav className="hidden md:flex items-center space-x-4">
+          <nav className="flex items-center space-x-4">
             <Link
               href="/contact"
-              className={cn(buttonVariants({ variant: "ghost" }))}
+              className={cn(
+                buttonVariants({ variant: "ghost" }),
+                "hidden md:inline-flex"
+              )}
             >
               Contact
             </Link>
             <Link
               href="/login"
-              className={cn(buttonVariants({ variant: "outline" }))}
+              className={cn(buttonVariants({ variant: "secondary" }))}
             >
               Log in
             </Link>
             <Link
               href="/register"
-              className={cn(buttonVariants({ variant: "default" }))}
+              className={cn(
+                buttonVariants({ variant: "default" }),
+                "hidden md:inline-flex"
+              )}
             >
               Sign up
             </Link>
