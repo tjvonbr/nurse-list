@@ -1,11 +1,14 @@
 import {
   ChevronLeft,
+  CreditCard,
   Facebook,
+  Headphones,
   HeartHandshake,
   Home,
   Menu,
   PartyPopper,
   Repeat,
+  Settings,
   Star,
   Twitter,
   User,
@@ -19,6 +22,7 @@ export interface Icons {
 }
 
 export const Icons: Icons = {
+  billing: CreditCard,
   close: X,
   facebook: Facebook,
   left: ChevronLeft,
@@ -27,7 +31,9 @@ export const Icons: Icons = {
   menu: Menu,
   partyPopper: PartyPopper,
   repeat: Repeat,
+  settings: Settings,
   star: Star,
+  support: Headphones,
   twitter: Twitter,
   user: User,
   users: Users2,
