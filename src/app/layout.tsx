@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import NextAuthProvider from "@/components/NextAuthProvider";
 import PlausibleProvider from "next-plausible";
 import { siteConfig } from "@/config/siteConfig";
-import { Toaster } from "react-hot-toast";
+import { Toaster } from "@/components/common/Toaster";
 
 export const metadata: Metadata = {
   title: {

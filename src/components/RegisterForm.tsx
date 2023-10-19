@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { Input } from "./common/Input";
 import { signIn } from "next-auth/react";
 import Spinner from "./common/Spinner";
-import toast from "react-hot-toast";
+import { toast } from "@/components/common/use-toast";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -46,9 +46,10 @@ export default function RegisterForm({ email }: { email: string | null }) {
     });
 
     if (!dbUser) {
-      return toast.error(
-        "There was an error trying to sign you up.  Please reach out to support@gonurselist.com!"
-      );
+      return toast({
+        title: "Something went wrong",
+        description: "Your sign up request failed.  Please try again.",
+      });
     }
 
     const signInResult = await signIn("email", {
@@ -60,11 +61,17 @@ export default function RegisterForm({ email }: { email: string | null }) {
     setIsLoading(false);
 
     if (!signInResult?.ok) {
-      return toast.error("Oh no!  Something went wrong signing you up!");
-    } else {
-      toast.success("Yay!  You're signed up.  Time to login in!");
-      router.replace("/login");
+      return toast({
+        title: "Oh no!  Something went wrong signing you up!",
+        description: "",
+      });
     }
+
+    return toast({
+      title: "Check your inbox",
+      description:
+        "We sent you an account activation link. Be sure to check your spam too.",
+    });
   }
 
   return (

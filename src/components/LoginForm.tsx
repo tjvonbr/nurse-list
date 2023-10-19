@@ -6,6 +6,7 @@ import { Input } from "./common/Input";
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
 import Spinner from "./common/Spinner";
+import { toast } from "./common/use-toast";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -17,12 +18,26 @@ export default function LoginForm() {
     e.preventDefault();
     setIsLoggingIn(true);
 
-    await signIn("email", {
-      email,
-      callbackUrl: "/",
+    const response = await signIn("email", {
+      email: email.toLowerCase(),
+      redirect: false,
+      callbackUrl: "/dashboard",
     });
 
     setIsLoggingIn(false);
+
+    if (!response?.ok) {
+      return toast({
+        title: "Something went wrong.",
+        description: "Your sign in request failed. Please try again.",
+        variant: "destructive",
+      });
+    }
+
+    return toast({
+      title: "Check your email",
+      description: "We sent you a login link. Be sure to check your spam too.",
+    });
   }
 
   return (
