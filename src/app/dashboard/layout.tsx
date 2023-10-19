@@ -13,7 +13,7 @@ interface DashboardLayoutProps {
 export default async function DashboardLayout({
   children,
 }: DashboardLayoutProps) {
-  const user = getCurrentUser();
+  const user = await getCurrentUser();
 
   if (!user) {
     redirect("/login");
