@@ -29,6 +29,10 @@ const config: Config = {
           DEFAULT: "rgb(var(--accent))",
           foreground: "rgb(var(--accent-foreground))",
         },
+        destructive: {
+          DEFAULT: "#ff0000",
+          foreground: "f5fAff",
+        },
         muted: {
           DEFAULT: "#f1f5f9",
           foreground: "#64748b",

@@ -5,7 +5,7 @@ import { buttonVariants } from "./common/Button";
 import { cn } from "@/lib/utils";
 import { Input } from "./common/Input";
 import Spinner from "./common/Spinner";
-import toast from "react-hot-toast";
+import { toast } from "@/components/common/use-toast";
 import { useState } from "react";
 
 export default function RecruiterForm() {
@@ -49,9 +49,10 @@ export default function RecruiterForm() {
     setIsLoading(false);
 
     if (!mailchimpResponse.ok || !notionResponse.ok) {
-      return toast.error(
-        "Whoops!  Something went wrong.  Please reach out to support@gonurselist.com!"
-      );
+      return toast({
+        title: "Something went wrong",
+        description: "Your sign up request failed.  Please try again.",
+      });
     }
 
     setRecruiter({
@@ -60,9 +61,10 @@ export default function RecruiterForm() {
       email: "",
     });
 
-    return toast.success(
-      "Email received!  Someone from the team will reach out shortly."
-    );
+    return toast({
+      title: "Success",
+      description: "Someone from the team will be in touch shortly.",
+    });
   }
 
   return (
