@@ -1,12 +1,11 @@
-"use client";
-
 import { getCurrentUser } from "@/lib/session";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { buttonVariants } from "./common/Button";
+import UserDropdown from "./UserDropdown";
 
 export default async function AuthNav() {
-  const user = getCurrentUser();
+  const user = await getCurrentUser();
 
   return (
     <nav className="flex items-center space-x-4">
@@ -20,7 +19,7 @@ export default async function AuthNav() {
         Contact
       </Link>
       {user ? (
-        <UserDropdown user={session.user} />
+        <UserDropdown user={user} />
       ) : (
         <>
           <Link
