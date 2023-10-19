@@ -17,20 +17,28 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       colors: {
-        accent: {
-          DEFAULT: "rgb(var(--accent))",
-          foreground: "rgb(var(--accent-foreground))",
-        },
-        border: "rgb(var(--border))",
-        input: "rgb(var(--input))",
         primary: {
           DEFAULT: "rgb(var(--primary))",
           foreground: "rgb(var(--primary-foreground))",
         },
         secondary: {
           DEFAULT: "#f1f5f9",
-          foreground: "rgb(var(--secondary-foreground))",
+          foreground: "#64748b",
         },
+        accent: {
+          DEFAULT: "rgb(var(--accent))",
+          foreground: "rgb(var(--accent-foreground))",
+        },
+        muted: {
+          DEFAULT: "#f1f5f9",
+          foreground: "#64748b",
+        },
+        popover: {
+          DEFAULT: "#ffffff",
+          foreground: "#0f172a",
+        },
+        border: "rgb(var(--border))",
+        input: "rgb(var(--input))",
       },
     },
   },

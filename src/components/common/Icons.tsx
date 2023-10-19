@@ -8,6 +8,7 @@ import {
   Repeat,
   Star,
   Twitter,
+  User,
   Users2,
   X,
   type LucideIcon,
@@ -28,5 +29,6 @@ export const Icons: Icons = {
   repeat: Repeat,
   star: Star,
   twitter: Twitter,
+  user: User,
   users: Users2,
 };
