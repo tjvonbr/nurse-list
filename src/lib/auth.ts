@@ -56,7 +56,7 @@ export const authOptions: NextAuthOptions = {
           pass: process.env.EMAIL_SERVER_PASSWORD,
         },
       },
-      from: process.env.EMAIL_FROM,
+      from: process.env.SMTP_FROM,
       sendVerificationRequest: async function ({ identifier, url, provider }) {
         const dbUser = await db.user.findUnique({
           where: {
