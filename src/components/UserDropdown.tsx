@@ -38,7 +38,7 @@ export default function UserDropdown({ user }: UserDropdownProps) {
         </div>
         <DropdownSeparator />
         <DropdownItem asChild>
-          <Link href="/dashboard/billing">Billing</Link>
+          <Link href="/billing">Billing</Link>
         </DropdownItem>
         <DropdownSeparator />
         <DropdownItem
