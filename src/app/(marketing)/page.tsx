@@ -2,7 +2,7 @@ import EmailForm from "@/components/EmailForm";
 import FeaturesSection from "@/components/FeaturesSection";
 import PricingSection from "@/components/PricingSection";
 
-export default function Home() {
+export default async function Home() {
   return (
     <>
       <section className="space-y-12 md:space-y-48 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
