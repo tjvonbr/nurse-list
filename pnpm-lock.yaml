@@ -4,138 +4,140 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-dependencies:
-  '@auth/prisma-adapter':
-    specifier: ^1.0.1
-    version: 1.0.3(@prisma/client@5.4.1)(nodemailer@6.9.5)
-  '@mailchimp/mailchimp_marketing':
-    specifier: ^3.0.80
-    version: 3.0.80
-  '@mailchimp/mailchimp_transactional':
-    specifier: ^1.0.50
-    version: 1.0.50
-  '@notionhq/client':
-    specifier: ^2.2.13
-    version: 2.2.13(encoding@0.1.13)
-  '@prisma/client':
-    specifier: ^5.1.1
-    version: 5.4.1(prisma@5.4.1)
-  '@radix-ui/react-avatar':
-    specifier: ^1.0.4
-    version: 1.0.4(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
-  '@radix-ui/react-dropdown-menu':
-    specifier: ^2.0.5
-    version: 2.0.6(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
-  '@radix-ui/react-toast':
-    specifier: ^1.1.5
-    version: 1.1.5(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
-  '@radix-ui/themes':
-    specifier: ^1.0.0
-    version: 1.1.2(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
-  '@react-google-maps/api':
-    specifier: ^2.19.2
-    version: 2.19.2(react-dom@18.2.0)(react@18.2.0)
-  '@types/react':
-    specifier: 18.2.18
-    version: 18.2.18
-  '@types/react-dom':
-    specifier: 18.2.7
-    version: 18.2.7
-  autoprefixer:
-    specifier: 10.4.14
-    version: 10.4.14(postcss@8.4.27)
-  class-variance-authority:
-    specifier: ^0.7.0
-    version: 0.7.0
-  clsx:
-    specifier: ^2.0.0
-    version: 2.0.0
-  convertkit-react:
-    specifier: ^1.5.5
-    version: 1.5.5
-  eslint:
-    specifier: 8.46.0
-    version: 8.46.0
-  eslint-config-next:
-    specifier: 13.5.5
-    version: 13.5.5(eslint@8.46.0)(typescript@5.2.2)
-  framer-motion:
-    specifier: ^10.16.4
-    version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
-  google-map-react:
-    specifier: ^2.2.1
-    version: 2.2.1(react-dom@18.2.0)(react@18.2.0)
-  lucide-react:
-    specifier: ^0.263.1
-    version: 0.263.1(react@18.2.0)
-  next:
-    specifier: 13.5.5
-    version: 13.5.5(react-dom@18.2.0)(react@18.2.0)
-  next-auth:
-    specifier: ^4.23.0
-    version: 4.23.2(next@13.5.5)(nodemailer@6.9.5)(react-dom@18.2.0)(react@18.2.0)
-  next-plausible:
-    specifier: ^3.11.1
-    version: 3.11.1(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
-  postcss:
-    specifier: 8.4.27
-    version: 8.4.27
-  postmark:
-    specifier: ^3.1.1
-    version: 3.1.1
-  react:
-    specifier: 18.2.0
-    version: 18.2.0
-  react-dom:
-    specifier: 18.2.0
-    version: 18.2.0(react@18.2.0)
-  react-places-autocomplete:
-    specifier: ^7.3.0
-    version: 7.3.0(react@18.2.0)
-  stripe:
-    specifier: ^13.8.0
-    version: 13.9.0
-  tailwind-merge:
-    specifier: ^1.14.0
-    version: 1.14.0
-  tailwindcss:
-    specifier: 3.3.3
-    version: 3.3.3(ts-node@10.9.1)
-  zod:
-    specifier: ^3.21.4
-    version: 3.22.4
+importers:
 
-devDependencies:
-  '@types/google-map-react':
-    specifier: ^2.1.7
-    version: 2.1.8
-  '@types/mailchimp__mailchimp_marketing':
-    specifier: ^3.0.15
-    version: 3.0.15
-  '@types/mailchimp__mailchimp_transactional':
-    specifier: ^1.0.5
-    version: 1.0.6
-  '@types/node':
-    specifier: ^20.4.8
-    version: 20.8.3
-  '@types/react-places-autocomplete':
-    specifier: ^7.2.9
-    version: 7.2.10
-  encoding:
-    specifier: ^0.1.13
-    version: 0.1.13
-  nodemailer:
-    specifier: ^6.9.4
-    version: 6.9.5
-  prisma:
-    specifier: ^5.1.1
-    version: 5.4.1
-  ts-node:
-    specifier: ^10.9.1
-    version: 10.9.1(@types/node@20.8.3)(typescript@5.2.2)
-  typescript:
-    specifier: ^5.1.6
-    version: 5.2.2
+  .:
+    dependencies:
+      '@auth/prisma-adapter':
+        specifier: ^1.0.1
+        version: 1.0.3(@prisma/client@5.4.1)(nodemailer@6.9.5)
+      '@mailchimp/mailchimp_marketing':
+        specifier: ^3.0.80
+        version: 3.0.80
+      '@mailchimp/mailchimp_transactional':
+        specifier: ^1.0.50
+        version: 1.0.50
+      '@notionhq/client':
+        specifier: ^2.2.13
+        version: 2.2.13(encoding@0.1.13)
+      '@prisma/client':
+        specifier: ^5.1.1
+        version: 5.4.1(prisma@5.4.1)
+      '@radix-ui/react-avatar':
+        specifier: ^1.0.4
+        version: 1.0.4(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-dropdown-menu':
+        specifier: ^2.0.5
+        version: 2.0.6(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/react-toast':
+        specifier: ^1.1.5
+        version: 1.1.5(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
+      '@radix-ui/themes':
+        specifier: ^1.0.0
+        version: 1.1.2(@types/react-dom@18.2.7)(@types/react@18.2.18)(react-dom@18.2.0)(react@18.2.0)
+      '@react-google-maps/api':
+        specifier: ^2.19.2
+        version: 2.19.2(react-dom@18.2.0)(react@18.2.0)
+      '@types/react':
+        specifier: 18.2.18
+        version: 18.2.18
+      '@types/react-dom':
+        specifier: 18.2.7
+        version: 18.2.7
+      autoprefixer:
+        specifier: 10.4.14
+        version: 10.4.14(postcss@8.4.27)
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
+      convertkit-react:
+        specifier: ^1.5.5
+        version: 1.5.5
+      eslint:
+        specifier: 8.46.0
+        version: 8.46.0
+      eslint-config-next:
+        specifier: 13.5.5
+        version: 13.5.5(eslint@8.46.0)(typescript@5.2.2)
+      framer-motion:
+        specifier: ^10.16.4
+        version: 10.16.4(react-dom@18.2.0)(react@18.2.0)
+      google-map-react:
+        specifier: ^2.2.1
+        version: 2.2.1(react-dom@18.2.0)(react@18.2.0)
+      lucide-react:
+        specifier: ^0.263.1
+        version: 0.263.1(react@18.2.0)
+      next:
+        specifier: 13.5.5
+        version: 13.5.5(react-dom@18.2.0)(react@18.2.0)
+      next-auth:
+        specifier: ^4.23.0
+        version: 4.23.2(next@13.5.5)(nodemailer@6.9.5)(react-dom@18.2.0)(react@18.2.0)
+      next-plausible:
+        specifier: ^3.11.1
+        version: 3.11.1(next@13.5.5)(react-dom@18.2.0)(react@18.2.0)
+      postcss:
+        specifier: 8.4.27
+        version: 8.4.27
+      postmark:
+        specifier: ^3.1.1
+        version: 3.1.1
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-places-autocomplete:
+        specifier: ^7.3.0
+        version: 7.3.0(react@18.2.0)
+      stripe:
+        specifier: ^13.8.0
+        version: 13.9.0
+      tailwind-merge:
+        specifier: ^1.14.0
+        version: 1.14.0
+      tailwindcss:
+        specifier: 3.3.3
+        version: 3.3.3(ts-node@10.9.1)
+      zod:
+        specifier: ^3.21.4
+        version: 3.22.4
+    devDependencies:
+      '@types/google-map-react':
+        specifier: ^2.1.7
+        version: 2.1.8
+      '@types/mailchimp__mailchimp_marketing':
+        specifier: ^3.0.15
+        version: 3.0.15
+      '@types/mailchimp__mailchimp_transactional':
+        specifier: ^1.0.5
+        version: 1.0.6
+      '@types/node':
+        specifier: ^20.4.8
+        version: 20.8.3
+      '@types/react-places-autocomplete':
+        specifier: ^7.2.9
+        version: 7.2.10
+      encoding:
+        specifier: ^0.1.13
+        version: 0.1.13
+      nodemailer:
+        specifier: ^6.9.4
+        version: 6.9.5
+      prisma:
+        specifier: ^5.1.1
+        version: 5.4.1
+      ts-node:
+        specifier: ^10.9.1
+        version: 10.9.1(@types/node@20.8.3)(typescript@5.2.2)
+      typescript:
+        specifier: ^5.1.6
+        version: 5.2.2
 
 packages:
 
